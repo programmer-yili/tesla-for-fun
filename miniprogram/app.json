@@ -11,6 +11,27 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#c3c3c3",
+    "selectedColor": "#1b1b1b",
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/model-s.png",
+      "selectedIconPath": "images/model-s-selected.png",
+      "text": "Tesla"
+    }, {
+      "iconPath": "images/map.png",
+      "selectedIconPath": "images/map-selected.png",
+      "pagePath": "pages/map/index",
+      "text": "地图"
+    }, {
+      "iconPath": "images/activity.png",
+      "selectedIconPath": "images/activity-selected.png",
+      "pagePath": "pages/activity/index",
+      "text": "活动"
+    }]
+  },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
 }
