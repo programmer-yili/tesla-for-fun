@@ -15,7 +15,8 @@ swiper {
     position: relative;
 }
 
-.swiper-item .swiper-content {
+.swiper-area .swiper-content {
+    pointer-events: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -45,13 +46,24 @@ swiper {
     align-items: center;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .meta .items .item-title {
     font-size: 50rpx;
+    animation: fadeIn 2s;
 }
 
 .meta .items .item-subtitle {
     margin-top: 10rpx;
     font-size: 25rpx;
+    animation: fadeIn 2s;
 }
 
 .swiper-content .action {

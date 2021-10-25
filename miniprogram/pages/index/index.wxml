@@ -2,42 +2,34 @@
 <view class="page">
     <view class="swiper-area">
         <swiper autoplay bindchange="onSwiperChange">
-          <swiper-item wx:for="{{ list }}"  wx:key="index" >
-            <view class="swiper-item">
-                <image src="https://www.zhev.com.cn/file/upload/news/20211001/1634802055.jpg" mode="aspectFill"></image>
-                <view class="swiper-content">
-                    <view class="title">
-                        Model S
-                    </view>
+            <swiper-item wx:for="{{ list }}" wx:key="index">
+                <view class="swiper-item">
+                    <image src="{{item.imageUrl}}" mode="aspectFill"></image>
+                </view>
+            </swiper-item>
+        </swiper>
+        <view wx:for="{{ list }}" wx:key="index" wx:if="{{ index == current }}" class="swiper-content">
+            <view class="title">
+                {{ item.title }}
+            </view>
 
-                    <view class="meta">
-                    <view class="items">
-                    <view class="item-title">2,100+</view>
-                    <view class="item-subtitle">升储存空间</view>
-                    </view>
-                    <view class="items">
-                    <view class="item-title">2,100+</view>
-                    <view class="item-subtitle">升储存空间</view>
-                    </view>
-                    <view class="items">
-                    <view class="item-title">2,100+</view>
-                    <view class="item-subtitle">升储存空间</view>
-                    </view>
-                    </view>
-
-                    <view class="action">
-                    <view class="boot-btn">
-                        <button>预约试驾</button>
-                        <view class="boot-btn-back"></view>
-                    </view>
-                    <view class="view-configuration">查看配置</view>
-                    </view>
+            <view class="meta">
+                <view wx:for="{{ item.specs }}" wx:key="index" class="items">
+                    <view class="item-title">{{ item.title }}</view>
+                    <view class="item-subtitle">{{ item.subtitle }}</view>
                 </view>
             </view>
-          </swiper-item>
-      </swiper>
-      <view class="swiper-dots">
-          <view  wx:for="{{ list }}" wx:key="index" class="dot {{ current == index ? 'active': '' }}"></view>
-      </view>
+
+            <view class="action">
+                <view class="boot-btn">
+                    <button>预约试驾</button>
+                    <view class="boot-btn-back"></view>
+                </view>
+                <view class="view-configuration">查看配置</view>
+            </view>
+        </view>
+        <view class="swiper-dots">
+            <view wx:for="{{ list }}" wx:key="index" class="dot {{ current == index ? 'active': '' }}"></view>
+        </view>
     </view>
 </view>
