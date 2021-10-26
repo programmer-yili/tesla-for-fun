@@ -163,19 +163,41 @@ swiper {
     align-items: center;
     background-color: #fff;
 }
+
+
 .icon-banner {
     width: 87vw;
-    padding: 68rpx;
+    height: 244rpx;
     background-color: #f4f4f6;
-    box-sizing: border-box;
     border-radius: 20rpx;
-    margin-bottom: 50rpx;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 54rpx;
+}
+
+.icon-banner .banner-bg {
+    width: 87vw;
+    height: 244rpx;
+    position: absolute;
+    top: 0;
+    right: 0rpx;
+}
+
+.icon-banner  .credit-card {
+    width: 244rpx;
+    height: 244rpx;
+    overflow: hidden;
+    right: 48rpx;
 }
 
 .icon-banner .content {
+    position: absolute;
+    top: 70rpx;
+    left: 55rpx;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .icon-banner .content .info {
@@ -189,14 +211,34 @@ swiper {
 }
 .icon-banner .content .info .subtitle {
     font-size: 24rpx;
-
 }
 
 
-
-
-
-.icon-banner .content .icon {
-    width: 196rpx;
-    height: 120rpx;
+.icon-box-area {
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-evenly;
 }
+
+.icon-box {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.icon-box .icon {
+    height: 112rpx;
+    width: 112rpx;
+}
+
+.tradin image {
+    height: 72rpx;
+    width: 72rpx;
+    padding: 20rpx;
+}
+

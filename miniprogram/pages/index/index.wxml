@@ -33,27 +33,40 @@
     </view>
     <view class="magazine-area">
         <view class="title">T zone</view>
-        <image class="magazine-cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fbff416e448358bfe1821fe7f2b4fc6ece6dd234276c77-jLNwzW_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637763571&t=0b44011604724257d544ab14c280b7e4"></image>
+        <image class="magazine-cover" src="https://china-community-app.tesla.cn/wechatmini/magazine/magazine01.png"></image>
         <view class="magazine-title">2021年9月号</view>
     </view>
 
     <view class="icon-banner">
+        <image class="banner-bg credit-card" mode="widthFix" src="https://china-community-app.tesla.cn/wechatmini/credit_card.png"></image>
         <view class="content">
             <view class="info">
                 <view class="title">贷款计算器</view>
                 <view class="subtitle">定制我的金融方案</view>
             </view>
-            <image class="icon" src="https://636c-cloud1-4g2sqww73b1fdf3f-1306568592.tcb.qcloud.la/card-image.jpg?sign=5235addfa4af6fad68a9d2bd4cd72184&t=1635173759"></image>
         </view>
     </view>
 
     <view class="icon-banner">
+        <image class="banner-bg" src="https://china-community-app.tesla.cn/wechatmini/card_bg.png"></image>
         <view class="content">
             <view class="info">
                 <view class="title">新手视频</view>
                 <view class="subtitle">观看视频</view>
             </view>
-            <image class="icon" src="https://636c-cloud1-4g2sqww73b1fdf3f-1306568592.tcb.qcloud.la/video.jpg?sign=c6f841a19b811250e99008640d65c020&t=1635174293"></image>
+
+        </view>
+    </view>
+
+
+    <view class="icon-box-area">
+        <view class="icon-box">
+            <image class="icon" src="../../images/ic_clean_engry_policy.svg"  mode="aspectFit" ></image>
+            <view class="title">新能源政策</view>
+        </view>
+        <view class="icon-box tradin">
+            <image src="../../images/ic_traidin.svg" ></image>
+            <view class="title">车辆置换</view>
         </view>
     </view>
 </view>
