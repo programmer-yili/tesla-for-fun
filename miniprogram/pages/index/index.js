@@ -5,15 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        current: 0,
         list: []
     },
-    onSwiperChange(e) {
-        const { current } = e.detail
-        this.setData({
-            current
-        })
-    },
+
 
     /**
      * 生命周期函数--监听页面加载
