@@ -6,11 +6,7 @@ Page({
      */
     data: {
         current: 0,
-        list: [
-            {id: 1, title: 'Model S', specs: [{title: '2,100+', subtitle: '升存储空间'},{title: '2,100+', subtitle: '升存储空间'},{title: '2,100+', subtitle: '升存储空间'}], imageUrl: 'https://tesla-cdn.thron.cn/delivery/public/image/tesla/fdd414b6-2519-457d-8489-94503a783f2d/bvlatuR/std/800x1700/MS-Hero-Mobile'},
-            {id: 1, title: 'Model Y', specs: [{title: '2,100+', subtitle: '升存储空间'},{title: '2,100+', subtitle: '升存储空间'},{title: '2,100+', subtitle: '升存储空间'}], imageUrl: 'https://tesla-cdn.thron.cn/delivery/public/image/tesla/fdd414b6-2519-457d-8489-94503a783f2d/bvlatuR/std/800x1700/MS-Hero-Mobile'},
-            {id: 1, title: 'Model 3', specs: [{title: '2,100+', subtitle: '升存储空间'},{title: '2,100+', subtitle: '升存储空间'},{title: '2,100+', subtitle: '升存储空间'}], imageUrl: 'https://tesla-cdn.thron.cn/delivery/public/image/tesla/fdd414b6-2519-457d-8489-94503a783f2d/bvlatuR/std/800x1700/MS-Hero-Mobile'}
-        ]
+        list: []
     },
     onSwiperChange(e) {
         const { current } = e.detail
@@ -23,7 +19,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        const db = wx.cloud.database()
+        db.collection('swiper')
+        .get().then(res=>{
+            this.setData({list: res.data})
+        })
     },
 
     /**
