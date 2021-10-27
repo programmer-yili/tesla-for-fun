@@ -55,7 +55,7 @@ swiper {
 
 .meta .items .item-title {
     font-size: 40rpx;
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
 }
 
 .meta .items .item-subtitle {

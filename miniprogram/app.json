@@ -17,17 +17,17 @@
     "borderStyle": "white",
     "list": [{
       "pagePath": "pages/index/index",
-      "iconPath": "images/model-s.png",
-      "selectedIconPath": "images/model-s-selected.png",
+      "iconPath": "images/nav/car.png",
+      "selectedIconPath": "images/nav/car_select.png",
       "text": "Tesla"
     }, {
-      "iconPath": "images/map.png",
-      "selectedIconPath": "images/map-selected.png",
+      "iconPath": "images/nav/map.png",
+      "selectedIconPath": "images/nav/map_select.png",
       "pagePath": "pages/map/index",
       "text": "地图"
     }, {
-      "iconPath": "images/activity.png",
-      "selectedIconPath": "images/activity-selected.png",
+      "iconPath": "images/nav/activity.png",
+      "selectedIconPath": "images/nav/activity_select.png",
       "pagePath": "pages/activity/index",
       "text": "活动"
     }]
