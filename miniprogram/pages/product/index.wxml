@@ -1,0 +1,29 @@
+<view class="page">
+    <image class="banner" src="{{ product.bannerImageUrl }}" mode="widthFix">
+    </image>
+
+    <view class="description">
+        <rich-text nodes="{{product.description}}"></rich-text>
+    </view>
+
+
+    <view class="product-line">
+        <view class="product-config-area">
+            <view wx:for="{{ product.productLine }}" class="product-config-box">
+                <view class="title">{{item.title}}</view>
+                <view class="subtitle">{{item.subtitle}}</view>
+                <view class="line"></view>
+                <view class="config-list">
+                    <view class="config-box" wx:for="{{ item.configList  }}">
+                        <view class="label">{{  item.label }}</view>
+                        <view class="value">{{ item.value }}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="info-box">
+        贯之的高性能与高科技配置。中国制造的Model3标准续航升级版将进一步拉低Model 3的起售价格，同时保持了Tesla一以贯之的高性能与高科技配置。中国制
+    </view>
+</view>

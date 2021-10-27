@@ -31,6 +31,12 @@ Component({
             this.setData({
                 current
             })
+        },
+        viewConfiguration(e) {
+            const {id} = e.target.dataset
+            wx.navigateTo({
+              url: `/pages/product/index?id=${id}`,
+            })
         }
     }
 })

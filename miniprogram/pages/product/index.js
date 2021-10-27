@@ -1,23 +1,23 @@
-// pages/index/index.js
+// pages/product/index.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        list: []
+        product: {}
     },
-
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        const { id } = options
         const db = wx.cloud.database()
-        db.collection('swiper')
+        db.collection('product').where({ '_id': id})
         .get().then(res=>{
-            console.log(res.data)
-            this.setData({list: res.data})
+            const data = res.data
+            this.setData({product: data[0]})
         })
     },
 

@@ -1,0 +1,76 @@
+/* pages/product/index.wxss */
+
+.banner {
+    width: 100vw;
+}
+
+.description {
+    padding: 52rpx;
+    color: #8b8b8b;
+    line-height: 40rpx;
+    font-size: 24rpx;
+}
+
+.product-line {
+    margin-top: 52rpx;
+
+}
+
+.product-config-area {
+    width: 130vw;
+    display: flex;
+    padding-left: 54rpx
+}
+.product-config-box {
+    margin-right: 154rpx;
+    width: 228rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-config-box .title {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-bottom: 5rpx;
+}
+
+.product-config-box .subtitle {
+    font-size: 30rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+}
+
+.product-config-box .line {
+    width: 100%;
+    border-bottom: solid 3rpx #c3c3c3;
+    margin-bottom: 45rpx;
+}
+
+
+.config-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.config-list .config-box {
+    margin-bottom: 50rpx;
+    width: 100%;
+}
+
+.config-list .config-box .label {
+    color: #9f9f9f;
+    font-size: 25rpx;
+    margin-bottom: 25rpx;
+}
+
+.config-list .config-box .value {
+    font-size: 36rpx;
+}
+
+
+.info-box {
+    padding: 0 54rpx;
+    font-size: 20rpx;
+    margin-bottom: 50rpx;
+    color: #9f9f9f;
+}

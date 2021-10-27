@@ -23,7 +23,7 @@
                     <button>预约试驾</button>
                     <view class="boot-btn-back"></view>
                 </view>
-                <view class="view-configuration">查看配置</view>
+                <view wx:if="{{item.productId}}" class="view-configuration" bindtap="viewConfiguration" data-id="{{ item.productId }}">查看配置</view>
             </view>
         </view>
         <view class="swiper-dots">
