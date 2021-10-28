@@ -1,5 +1,7 @@
 <view class="page">
-    <tesla-swiper style="width: 100%;" wx:if="{{ list.length }}" data="{{ list }}" />
+    <tesla-swiper style="width: 100%;" wx:if="{{ list.length }}" data="{{ list }}"
+    bind:on-book-btn-click="onSwiperBookBtnClick"
+     />
     <view class="magazine-area">
         <view class="title">T zone</view>
         <image class="magazine-cover" src="https://china-community-app.tesla.cn/wechatmini/magazine/magazine01.png"></image>
@@ -38,4 +40,30 @@
             <view class="title">车辆置换</view>
         </view>
     </view>
+
+
+<page-container 
+  show="{{selectModelShow}}"
+  round="{{ true }}"
+  overlay="{{ true }}"
+  position="{{ 'bottom' }}"
+  close-on-slide-down="{{false}}"
+  custom-style="{{ 'z-index: 9999;' }}"
+  overlay-style="{{ 'z-index: 9999;' }}"
+>
+    <view class="popup-menu">
+        <view class="head">
+            <view class="title">选择车型</view>
+            <image class="close-icon" src="../../images/ic_close_dark.svg"></image>
+        </view>
+        <view class="content">
+            <view class="item-box" wx:for="{{ products }}" wx:key="index"  >
+            <view class="item-box-block" bindtap="clickProduct" data-id="{{item['_id']}}">
+                <view class="title">{{ item.name }}</view>
+                <image src="{{item.carPic}}"></image>
+            </view>
+            </view>
+        </view>
+    </view>
+</page-container>
 </view>

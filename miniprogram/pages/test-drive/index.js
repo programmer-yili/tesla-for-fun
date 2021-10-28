@@ -1,34 +1,25 @@
-// pages/index/index.js
+// pages/test-drive/index.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        list: [],
-        selectModelShow: false,
-        products: []
-    },
 
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        const db = wx.cloud.database()
-        db.collection('swiper')
-        .get().then(res=>{
-            console.log(res.data)
-            this.setData({list: res.data})
-        })
+        wx.setNavigationBarTitle({
+            title: '预约试乘试驾'
+          })
+          wx.setBackgroundColor({
+            backgroundColor: '#f7f7f7',
+          })
 
-        db.collection('product').get().then(res=>{
-            const products = res.data
-            this.setData({products})
-        })
-    },
-    onSwiperBookBtnClick() {
-        this.setData({selectModelShow: true})
+
     },
 
     /**
@@ -71,11 +62,6 @@ Page({
      */
     onReachBottom: function () {
 
-    },
-
-    clickProduct(e) {
-         
-        console.log(e.target.dataset.id)
     },
 
     /**

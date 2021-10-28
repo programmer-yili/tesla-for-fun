@@ -37,6 +37,9 @@ Component({
             wx.navigateTo({
               url: `/pages/product/index?id=${id}`,
             })
+        },
+        onBookBtnClick() {
+            this.triggerEvent('on-book-btn-click')
         }
     }
 })

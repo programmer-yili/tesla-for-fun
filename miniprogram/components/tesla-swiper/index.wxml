@@ -19,9 +19,9 @@
             </view>
 
             <view class="action">
-                <view class="boot-btn">
-                    <button>预约试驾</button>
-                    <view class="boot-btn-back"></view>
+                <view class="book-btn">
+                    <button bindtap="onBookBtnClick">预约试驾</button>
+                    <view class="book-btn-back"></view>
                 </view>
                 <view wx:if="{{item.productId}}" class="view-configuration" bindtap="viewConfiguration" data-id="{{ item.productId }}">查看配置</view>
             </view>

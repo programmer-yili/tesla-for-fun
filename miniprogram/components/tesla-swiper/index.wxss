@@ -99,13 +99,14 @@ swiper {
     background-color: #ffffff;
 }
 
-.boot-btn {
+.book-btn {
     border-radius: 80rpx;
     overflow: hidden;
     position: relative;
+    width: 80vw;
     z-index: 1;
 }
-.boot-btn button {
+.book-btn button {
     color: #ffffff;
     background: none;
     z-index: 1;
@@ -114,7 +115,7 @@ swiper {
     font-size: 24rpx;
 }
 
-.boot-btn .boot-btn-back {
+.book-btn .book-btn-back {
     position: absolute;
     width: 100%;
     height: 100%;
