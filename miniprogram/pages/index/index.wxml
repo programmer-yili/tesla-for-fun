@@ -57,11 +57,9 @@
             <image class="close-icon" src="../../images/ic_close_dark.svg"></image>
         </view>
         <view class="content">
-            <view class="item-box" wx:for="{{ products }}" wx:key="index"  >
-            <view class="item-box-block" bindtap="clickProduct" data-id="{{item['_id']}}">
+            <view class="item-box" wx:for="{{ products }}" wx:key="index" bindtap="clickProduct" data-id="{{ item._id }}">
                 <view class="title">{{ item.name }}</view>
                 <image src="{{item.carPic}}"></image>
-            </view>
             </view>
         </view>
     </view>

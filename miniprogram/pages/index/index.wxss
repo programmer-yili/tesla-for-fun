@@ -146,10 +146,6 @@
 
 .popup-menu .content .item-box {
     width: 100%;
-}
-
-.popup-menu .content .item-box-block {
-    width: 100%;
     border: 1rpx solid #d1d1d1;
     border-radius: 30rpx;
     display: flex;
@@ -160,6 +156,7 @@
     margin-bottom: 40rpx;
     box-sizing: border-box;
 }
+
 
 .popup-menu .content .item-box:focus {
     border-color: blue;
