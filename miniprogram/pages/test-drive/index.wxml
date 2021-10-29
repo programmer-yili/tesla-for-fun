@@ -7,38 +7,23 @@
         <form>
             <view class="name-area">
                 <view class="name-box">
-                    <view class="input-item">
-                        <view class="label">姓氏</view>
-                        <input auto-focus />
-                    </view>
+                    <tesla-input required label="姓氏" />
                 </view>
                 <view class="name-box">
-                    <view class="input-item">
-                        <view class="label">名字</view>
-                        <input auto-focus />
-                    </view>
+                    <tesla-input required label="名字" />
                 </view>
             </view>
+            <tesla-input required label="电子邮件" />
 
-            <view class="input-item">
-                <view class="label">电子邮件</view>
-                <input auto-focus />
-            </view>
+            <tesla-input required label="手机号码" />
 
-            <view class="input-item">
-                <view class="label">手机号码</view>
-                <input auto-focus />
-            </view>
+            <picker bindchange="bindProvinceChange" value="{{ province }}" range="{{provinces}}">
+                <tesla-input required label="省份" value="{{provinces[province]}}" />
+            </picker>
 
-            <view class="input-item">
-                <view class="label">省份</view>
-                <input auto-focus />
-            </view>
-
-            <view class="input-item">
-                <view class="label">城市</view>
-                <input auto-focus />
-            </view>
+            <picker bindchange="bindCityChange" value="{{city}}" range="{{cities}}">
+                <tesla-input required label="城市" value="{{cities[city]}}" />
+            </picker>
 
             <view class="form-item">
                     <checkbox value="cb" checked="true"  color="#000"/>

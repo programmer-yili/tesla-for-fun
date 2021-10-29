@@ -69,7 +69,7 @@
                 {
                     "name": "预约页面",
                     "pathName": "pages/test-drive/index",
-                    "query": "id=1",
+                    "query": "id=fa24ce1a61796c0202b5d804400ec91d",
                     "scene": null
                 }
             ]

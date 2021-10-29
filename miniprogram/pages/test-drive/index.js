@@ -5,7 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+      currentProduct: null,
+      provinces: ['浙江', '陕西', '江苏', '新疆', '江西', '广东', '安徽'],
+      cities: ['杭州', '西安', '南京', '乌鲁木齐', '南昌', '广州', '合肥'],
+      city: 0,
+      province: 0,
     },
 
     /**
@@ -18,8 +22,32 @@ Page({
           wx.setBackgroundColor({
             backgroundColor: '#f7f7f7',
           })
+          const db = wx.cloud.database()
+          db.collection('product').where({ '_id': options.id})
+          .get().then(res=>{
+              const data = res.data
+              this.setData({currentProduct: data[0]})
+          })
+    },
 
+    bindProvinceChange: function(e) {
 
+      this.setData({
+        province: e.detail.value
+      })
+    },
+
+    bindCityChange: function(e) {
+
+      this.setData({
+        city: e.detail.value
+      })
+    },
+
+    onInput(e) {
+      if(e.detail.value === '') {
+        console.log('error', '必填字段')
+      }
     },
 
     /**
