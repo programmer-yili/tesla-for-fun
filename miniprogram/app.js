@@ -1,4 +1,5 @@
 //app.js
+import { initCurrentLocation, initProvincesAndCities, getCurrentLocation } from './utils/location.js'
 App({
   onLaunch: function () {
     if (!wx.cloud) {
@@ -9,7 +10,11 @@ App({
         traceUser: true,
       })
     }
-
     this.globalData = {}
+
+    initCurrentLocation();
+    initProvincesAndCities();
+
+    getCurrentLocation();
   }
 })

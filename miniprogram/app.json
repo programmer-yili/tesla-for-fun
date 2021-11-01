@@ -35,5 +35,10 @@
     }]
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于我们的服务人员跟踪您的信息并提供更好的服务"
+    }
+  }
 }

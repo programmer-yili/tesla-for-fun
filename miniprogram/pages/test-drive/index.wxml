@@ -17,12 +17,12 @@
 
             <tesla-input required label="手机号码" />
 
-            <picker bindchange="bindProvinceChange" value="{{ province }}" range="{{provinces}}">
-                <tesla-input required label="省份" value="{{provinces[province]}}" />
+            <picker bindchange="bindProvinceChange" value="{{ currentProvinceIndex }}" range-key="fullname" range="{{provincesAndCitiesTree}}">
+                <tesla-input required label="省份" value="{{province}}" />
             </picker>
 
-            <picker bindchange="bindCityChange" value="{{city}}" range="{{cities}}">
-                <tesla-input required label="城市" value="{{cities[city]}}" />
+            <picker bindchange="bindCityChange" value="{{currentCityIndex}}" range-key="fullname" range="{{cities}}">
+                <tesla-input required label="城市" value="{{city}}" />
             </picker>
 
             <view class="form-item">

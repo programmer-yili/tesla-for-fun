@@ -2,7 +2,7 @@
     "miniprogramRoot": "miniprogram/",
     "cloudfunctionRoot": "cloudfunctions/",
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "es6": true,
         "enhance": true,
         "postcss": true,
@@ -20,9 +20,9 @@
         "uploadWithSourceMap": true,
         "compileHotReLoad": true,
         "lazyloadPlaceholderEnable": false,
-        "useMultiFrameRuntime": false,
-        "useApiHook": false,
-        "useApiHostProcess": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],

@@ -1,4 +1,7 @@
 // pages/test-drive/index.js
+
+
+import {getCurrentLocation, getProvincesAndCitiesTree} from '../../utils/location.js'
 Page({
 
     /**
@@ -6,10 +9,12 @@ Page({
      */
     data: {
       currentProduct: null,
-      provinces: ['浙江', '陕西', '江苏', '新疆', '江西', '广东', '安徽'],
-      cities: ['杭州', '西安', '南京', '乌鲁木齐', '南昌', '广州', '合肥'],
-      city: 0,
-      province: 0,
+      provincesAndCitiesTree: [],
+      cities: [],
+      city: '',
+      province: '',
+      currentProvinceIndex: 0,
+      currentCityIndex: 0
     },
 
     /**
@@ -28,19 +33,61 @@ Page({
               const data = res.data
               this.setData({currentProduct: data[0]})
           })
+
+          const { city, province}  = getCurrentLocation()
+
+          const provincesAndCitiesTree = getProvincesAndCitiesTree()
+
+          const currentProvinceAndCities = provincesAndCitiesTree.filter(item=>{
+              return item.fullname === province
+          })
+
+          let currentProvinceIndex = 0;
+          provincesAndCitiesTree.forEach((item,index) => {
+            if(item.fullname === province) {
+              currentProvinceIndex = index;
+            }
+          })
+
+          const cities = currentProvinceAndCities[0].children
+          let currentCityIndex = 0;
+          cities.forEach((item,index) => {
+            if(item.fullname === city) {
+              currentCityIndex = index;
+            }
+          })
+
+
+
+          this.setData({
+            city,
+            province,
+            currentProvinceIndex,
+            cities,
+            currentCityIndex,
+            provincesAndCitiesTree
+          })
+
     },
 
     bindProvinceChange: function(e) {
-
+      const index = e.detail.value
+      const currentProvinceAndCities =  this.data.provincesAndCitiesTree[index]
       this.setData({
-        province: e.detail.value
+        province: currentProvinceAndCities.fullname,
+        city: currentProvinceAndCities.children[0].fullname,
+        cities: currentProvinceAndCities.children,
+        currentProvinceIndex: index,
+        currentCityIndex: 0
       })
     },
 
     bindCityChange: function(e) {
+      const index = e.detail.value
 
       this.setData({
-        city: e.detail.value
+        city: this.data.cities[index].fullname,
+        currentCityIndex: index,
       })
     },
 
