@@ -8,11 +8,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-      currentProduct: null,
-      provincesAndCitiesTree: [],
-      cities: [],
+      lastName: '',
+      firstName: '',
+      email: '',
+      phone: '',
       city: '',
       province: '',
+      currentProductId: null,
+      provincesAndCitiesTree: [],
+      cities: [],
       currentProvinceIndex: 0,
       currentCityIndex: 0
     },
@@ -26,13 +30,7 @@ Page({
           })
           wx.setBackgroundColor({
             backgroundColor: '#f7f7f7',
-          })
-          const db = wx.cloud.database()
-          db.collection('product').where({ '_id': options.id})
-          .get().then(res=>{
-              const data = res.data
-              this.setData({currentProduct: data[0]})
-          })
+          })        
 
           const { city, province}  = getCurrentLocation()
 
@@ -65,7 +63,8 @@ Page({
             currentProvinceIndex,
             cities,
             currentCityIndex,
-            provincesAndCitiesTree
+            provincesAndCitiesTree,
+            currentProductId: options.id
           })
 
     },
@@ -90,11 +89,56 @@ Page({
         currentCityIndex: index,
       })
     },
-
-    onInput(e) {
-      if(e.detail.value === '') {
-        console.log('error', '必填字段')
+    onSubmit() {
+      if(this._isFormReady()) {
+        this._handleSubmit();
       }
+    },
+    _handleSubmit() {
+      wx.showLoading({
+        title: '正在提交',
+      })
+      const db = wx.cloud.database()
+      const data =  {
+        firstName: this.data.firstName,
+        lastName: this.data.lastName,
+        email: this.data.email,
+        phone: this.data.phone,
+        province: this.data.province,
+        city: this.data.city,
+        status: 'TO_DO',
+        product: this.data.currentProductId
+      }
+      db.collection('test_drive').add({
+        data
+      }).then(res=>{
+        wx.hideLoading();
+        this._showSuccess()
+      })
+    },
+
+    _showSuccess() {
+      wx.showModal({
+        title: '预约成功',
+        content: '感谢您提交Tesla试驾请求。我们的工作人员会及时跟您电话联系',
+        showCancel: false,
+        success () {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }
+      })
+    },
+    _isFormReady() {
+      const children = this.selectAllComponents('.tesla-input')
+      let count = 0;
+      children.forEach( item => {
+        if(item.isReady()){
+          count++;
+        }
+      })
+
+      return count === children.length;
     },
 
     /**

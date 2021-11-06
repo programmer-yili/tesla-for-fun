@@ -7,22 +7,22 @@
         <form>
             <view class="name-area">
                 <view class="name-box">
-                    <tesla-input required label="姓氏" />
+                    <tesla-input class="tesla-input" required label="姓氏" model:value="{{ lastName }}" />
                 </view>
                 <view class="name-box">
-                    <tesla-input required label="名字" />
+                    <tesla-input class="tesla-input" required label="名字" model:value="{{ firstName }}" />
                 </view>
             </view>
-            <tesla-input required label="电子邮件" />
+            <tesla-input class="tesla-input" required label="电子邮件" model:value="{{ email }}" />
 
-            <tesla-input required label="手机号码" />
+            <tesla-input class="tesla-input" required label="手机号码" model:value="{{ phone }}" />
 
             <picker bindchange="bindProvinceChange" value="{{ currentProvinceIndex }}" range-key="fullname" range="{{provincesAndCitiesTree}}">
-                <tesla-input required label="省份" value="{{province}}" />
+                <tesla-input required label="省份" value="{{ province }}" />
             </picker>
 
             <picker bindchange="bindCityChange" value="{{currentCityIndex}}" range-key="fullname" range="{{cities}}">
-                <tesla-input required label="城市" value="{{city}}" />
+                <tesla-input required label="城市" value="{{ city }}" />
             </picker>
 
             <view class="form-item">
@@ -33,7 +33,7 @@
             <view class="bottom-tips">
                 这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示这是一个简单提示
             </view>
-            <view class="test-drive-btn">预约试驾</view>
+            <view class="test-drive-btn" bindtap="onSubmit">预约试驾</view>
         </form>
     </view>
 </view>

@@ -29,15 +29,21 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        onInput(e) {
+        onInput() {
+            this.checkError()
+        },
+        checkError() {
             let isError = false;
             if(this.properties.required) {
-                const { value } = e.detail;
-                if(value === '') {
+                if(this.properties.value === '') {
                     isError = true
                 }
             }
             this.setData({isError})
+        },
+        isReady() {
+            this.checkError()
+            return !this.data.isError;
         }
     }
 })
