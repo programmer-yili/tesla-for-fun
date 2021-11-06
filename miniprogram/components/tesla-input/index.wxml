@@ -1,5 +1,5 @@
 <view class="input-item">
     <view wx:if="{{ label }}" class="label">{{ label }}</view>
     <input class="{{ isError ? 'error' : '' }}" auto-focus bindinput="onInput" model:value="{{ value }}"  />
-    <view wx:if="{{ isError }}" class="error-message">请输入{{ label ? label : '字段' }}</view>
+    <view wx:if="{{ isError }}" class="error-message">{{ errorMessage }}</view>
 </view>

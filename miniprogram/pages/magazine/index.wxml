@@ -1,0 +1,1 @@
+<document-player class="document-area" imageData="{{ pages }}" totalPage="{{ pages.length }}" />

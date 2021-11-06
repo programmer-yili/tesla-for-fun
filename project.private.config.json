@@ -77,6 +77,12 @@
                     "pathName": "pages/test-drive/index",
                     "query": "id=fa24ce1a61796c0202b5d804400ec91d",
                     "scene": null
+                },
+                {
+                    "name": "月刊详情页",
+                    "pathName": "pages/magazine/index",
+                    "query": "id=18ed0968618697b303ba832d64f0d57f",
+                    "scene": null
                 }
             ]
         }

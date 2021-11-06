@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "componentGenerics": {
+    "genericsTest": true
+  },
+  "usingComponents": {
+    "scale-image": "./scale-image"
+  },
+  "pageOrientation": "auto"
+}

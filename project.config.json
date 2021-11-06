@@ -10,7 +10,7 @@
         "minified": true,
         "newFeature": true,
         "coverView": true,
-        "nodeModules": false,
+        "nodeModules": true,
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
@@ -31,8 +31,13 @@
         "enableEngineNative": false,
         "useIsolateContext": true,
         "userConfirmedBundleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": [],
+        "packNpmManually": true,
+        "packNpmRelationList": [
+            {
+                "packageJsonPath": "./package.json",
+                "miniprogramNpmDistDir": "./miniprogram/"
+            }
+        ],
         "minifyWXSS": true,
         "disableUseStrict": false,
         "showES6CompileOption": false,

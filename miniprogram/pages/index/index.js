@@ -7,7 +7,8 @@ Page({
     data: {
         list: [],
         selectModelShow: false,
-        products: []
+        products: [],
+        magezine: {}
     },
 
 
@@ -25,6 +26,11 @@ Page({
         db.collection('product').get().then(res=>{
             const products = res.data
             this.setData({products})
+        })
+
+        db.collection('magezine').get().then(res=>{
+            const magezine = res.data[0]
+            this.setData({ magezine })
         })
     },
     onSwiperBookBtnClick() {
@@ -79,6 +85,14 @@ Page({
          url: `/pages/test-drive/index?id=${id}`,
        })
        this.setData({selectModelShow: false})
+    },
+
+    clickMagazine(e) {
+        const id = e.currentTarget.dataset.id
+
+        wx.navigateTo({
+            url: `/pages/magazine/index?id=${id}`,
+          })
     },
 
     /**
