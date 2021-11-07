@@ -1,2 +1,28 @@
-<!--pages/map/index.wxml-->
-<text>pages/map/index.wxml</text>
+<view class="map-page">
+ <map 
+  id="myMap"
+  class="map"
+  latitude="{{latitude}}"
+  longitude="{{longitude}}"
+  markers="{{markers}}"
+  show-location
+></map>
+  <image class="current-location-icon" bindtap="onCurrentLocationClick" src="../../images/location.png"></image>
+    <tesla-search-input style="position: absolute;top: 94rpx;left: 44rpx;"></tesla-search-input>
+
+    <view class="marker-classification-area">
+        <view class="marker-classification active">
+            <image class="icon" src="../../images/map/super-charge.png"></image>
+            <view class="title">超级充电站</view>
+        </view>
+        <view class="marker-classification">
+            <image class="icon" src="../../images/map/super-charge.png"></image>
+            <view class="title">超级充电站</view>
+        </view>
+        <view class="marker-classification">
+            <image class="icon" src="../../images/map/super-charge.png"></image>
+            <view class="title">超级充电站</view>
+        </view>
+    </view>
+</view>
+

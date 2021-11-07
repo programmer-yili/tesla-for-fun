@@ -1,26 +1,38 @@
 // pages/map/index.js
+
+import {getCurrentLocation } from '../../utils/location.js'
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        latitude: 0,
+        longitude: 0,
+        markers: [
+            {latitude:30.134421, longitude: 120.267726, iconPath: '../../images/map/超充.png', width: 50, height: 50 }
+        ]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        const { location } = getCurrentLocation()
+        this.setData({
+            latitude: location.lat,
+            longitude: location.lng
+        })
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
-
-    },
+    onReady: function (e) {
+        this.mapCtx = wx.createMapContext('myMap')
+        this.mapCtx.moveToLocation()
+      },
 
     /**
      * 生命周期函数--监听页面显示
@@ -62,5 +74,8 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    onCurrentLocationClick() {
+        this.mapCtx.moveToLocation()
     }
 })

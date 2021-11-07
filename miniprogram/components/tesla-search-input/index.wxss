@@ -1,0 +1,31 @@
+.search-input {
+
+    width: 495rpx;
+    height: 50rpx;
+    border-radius: 22rpx;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search-input .serach-icon {
+    width: 22rpx;
+    height: 22rpx;
+    margin-left: 24rpx;
+    margin-right: 20rpx;
+}
+.search-input input{
+    font-size: 24rpx;
+    flex: 1;
+}
+.search-input .placeholder {
+    font-size: 24rpx;
+}
+
+.search-input .clear-icon {
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 24rpx;
+}

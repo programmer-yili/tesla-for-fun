@@ -83,6 +83,12 @@
                     "pathName": "pages/magazine/index",
                     "query": "id=18ed0968618697b303ba832d64f0d57f",
                     "scene": null
+                },
+                {
+                    "name": "地图",
+                    "pathName": "pages/map/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

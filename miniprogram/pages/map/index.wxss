@@ -1,1 +1,61 @@
 /* pages/map/index.wxss */
+
+.map {
+    width: 100vw;
+    height: 100vh;
+}
+
+.map-page {
+    position: relative;
+}
+
+.map-page .current-location-icon {
+    position: absolute;
+    width: 80rpx;
+    height: 80rpx;
+    right: 44rpx;
+    bottom: 50rpx;
+}
+
+.marker-classification-area {
+    position: absolute;
+    top: 154rpx;
+    left: 44rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.marker-classification {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 200rpx;
+    height: 50rpx;
+    background-color: #fff;
+    border-radius: 25rpx;
+    overflow: hidden;
+    margin-right: 22rpx;
+}
+
+.marker-classification .icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+    opacity: 0.3;
+}
+
+.marker-classification.active .icon {
+    opacity: 1;
+}
+
+.marker-classification .title {
+    font-size: 22rpx;
+    opacity: 0.3;
+
+}
+
+.marker-classification.active .title {
+    opacity: 1;
+}
+
