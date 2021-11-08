@@ -23,10 +23,13 @@
     left: 44rpx;
     display: flex;
     flex-direction: row;
+    height: 50rpx;
 }
 
 .marker-classification {
+    float: left;
     display: flex;
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
     flex-direction: row;
     align-items: center;
     width: 200rpx;
@@ -38,8 +41,9 @@
 }
 
 .marker-classification .icon {
-    width: 40rpx;
-    height: 40rpx;
+    width: 44rpx;
+    height: 44rpx;
+    margin-top: 8rpx;
     margin-left: 12rpx;
     margin-right: 12rpx;
     opacity: 0.3;

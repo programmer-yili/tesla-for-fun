@@ -10,19 +10,13 @@
   <image class="current-location-icon" bindtap="onCurrentLocationClick" src="../../images/location.png"></image>
     <tesla-search-input style="position: absolute;top: 94rpx;left: 44rpx;"></tesla-search-input>
 
-    <view class="marker-classification-area">
-        <view class="marker-classification active">
-            <image class="icon" src="../../images/map/super-charge.png"></image>
-            <view class="title">超级充电站</view>
+    <scroll-view scroll-x class="marker-classification-area">
+        <view style="{{ 'padding-left: 20rpx; width: ' + (222 * markerClassifications.length ) + 'rpx' }}">
+            <view wx:for="{{ markerClassifications }}" wx:key="index" class="marker-classification {{item.isActive ? 'active' : ''}}" bindtap="onMarkerClassificationTap" data-id="{{item.id}}">
+            <image class="icon" src="{{ item.icon }}"></image>
+            <view class="title">{{ item.title }}</view>
         </view>
-        <view class="marker-classification">
-            <image class="icon" src="../../images/map/super-charge.png"></image>
-            <view class="title">超级充电站</view>
         </view>
-        <view class="marker-classification">
-            <image class="icon" src="../../images/map/super-charge.png"></image>
-            <view class="title">超级充电站</view>
-        </view>
-    </view>
+    </scroll-view>
 </view>
 

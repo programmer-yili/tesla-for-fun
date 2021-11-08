@@ -10,9 +10,9 @@ Page({
     data: {
         latitude: 0,
         longitude: 0,
-        markers: [
-            {latitude:30.134421, longitude: 120.267726, iconPath: '../../images/map/超充.png', width: 50, height: 50 }
-        ]
+        markers: [],
+        allMarkers: [],
+        markerClassifications: []
     },
 
     /**
@@ -20,10 +20,104 @@ Page({
      */
     onLoad: function (options) {
         const { location } = getCurrentLocation()
+
+        this.db = wx.cloud.database()
+        
+        this.db.collection('marker_classification').get().then(res=>{
+            const markerClassifications = res.data
+            this._buildMarkerClassifications(markerClassifications)
+        })
+
+
+
         this.setData({
             latitude: location.lat,
             longitude: location.lng
         })
+    },
+
+    _buildMarkerClassifications(originMarkerClassifications) {
+        let markerClassifications = []
+        originMarkerClassifications.forEach((item, index)=>{
+            let markerClassification = {
+                id: item._id,
+                icon: item.icon,
+                title: item.title,
+                isActive: index === 0 ? true : false
+            }
+        
+            markerClassifications.push(markerClassification)
+        })
+        this.setData({markerClassifications})
+        this.db.collection('marker').get().then(res=>{
+            const markers = res.data
+            this._buildMarkers(markers)
+        })
+    },
+
+    _buildMarkers(originMarkers) {
+        let markers = []
+        originMarkers.forEach(item=>{
+            let marker = {
+                id: item._id,
+                latitude: item.latitude,
+                longitude: item.longitude,
+                width: 50,
+                height: 50,
+                iconPath: this._getMarkerIconPath(item.classificationId),
+                title: item.name,
+                classificationId: item.classificationId
+            }
+        
+            markers.push(marker)
+        })
+
+        this.setData({ allMarkers: markers })
+        this._filterMakers()
+    },
+
+    _filterMakers() {
+        this._findCurrentActiveClassificationIds()
+
+        const markers = this.data.allMarkers.filter(item=>{
+            return this._findCurrentActiveClassificationIds().includes(item.classificationId)
+        })
+        this.setData({markers})
+    },
+
+    _findCurrentActiveClassificationIds() {
+        let ids = []
+        this.data.markerClassifications.forEach(item=>{
+           item.isActive === false || ids.push(item.id)
+        })
+        return ids;
+    },
+
+    _getMarkerIconPath(classificationId) {
+       
+        const result = this.data.markerClassifications.filter(item=>{
+            return item.id === classificationId
+        })
+        return result[0]['icon']
+    },
+
+    onMarkerClassificationTap(e) {
+        const {id} = e.currentTarget.dataset
+        let markerClassifications = this.data.markerClassifications
+        this.data.markerClassifications.forEach((item, index)=>{
+            
+            if(item.id === id) {
+                markerClassifications[index].isActive = !markerClassifications[index].isActive
+            }
+        })
+
+        this.setData({
+            markerClassifications
+        })
+
+        this._filterMakers()
+
+
     },
 
     /**
