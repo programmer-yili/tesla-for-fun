@@ -1,0 +1,38 @@
+<view class="location-page">
+    <view class="head-area">
+        <view class="meta">
+            <view class="title">
+                {{ name }}
+            </view>
+            <view class="address">
+                {{ address }}
+            </view>
+            <view class="classification">
+                {{ classification }}
+            </view>
+        </view>
+
+        <view class="navigation">
+            <image class="icon" src="../../images/navigate.png"></image>
+            <view class="label">{{ distance }}</view>
+        </view>
+    </view>
+    <view class="info-area">
+        <view class="info-box">
+            <view class="title">时间信息</view>
+            <rich-text nodes="{{timeInfo}}" class="content">   
+            </rich-text>
+        </view>
+
+        <view class="info-box">
+            <view class="title">充电信息</view>
+            <rich-text nodes="{{chargingInfo}}" class="content">   
+            </rich-text>
+        </view>
+
+        <view class="info-box" wx:for="{{ phoneInfo }}" wx:key="index">
+            <view class="title">服务电话</view>
+            <view class="phone">{{ item }}</view>
+        </view>
+    </view>
+</view>

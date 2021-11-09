@@ -5,6 +5,7 @@
   latitude="{{latitude}}"
   longitude="{{longitude}}"
   markers="{{markers}}"
+  bindmarkertap="onMarkerTap"
   show-location
 ></map>
   <image class="current-location-icon" bindtap="onCurrentLocationClick" src="../../images/location.png"></image>

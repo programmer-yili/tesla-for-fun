@@ -57,9 +57,10 @@ Page({
 
     _buildMarkers(originMarkers) {
         let markers = []
-        originMarkers.forEach(item=>{
+        originMarkers.forEach((item, index)=>{
             let marker = {
-                id: item._id,
+                id: index,
+                _id: item._id,
                 latitude: item.latitude,
                 longitude: item.longitude,
                 width: 50,
@@ -74,6 +75,13 @@ Page({
 
         this.setData({ allMarkers: markers })
         this._filterMakers()
+    },
+
+    onMarkerTap(e) {
+        const {markerId} = e.detail
+        wx.navigateTo({
+          url: `/pages/map/location?id=${this.data.allMarkers[markerId]['_id']}`,
+        })
     },
 
     _filterMakers() {

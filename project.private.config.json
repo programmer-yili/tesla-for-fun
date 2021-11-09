@@ -89,6 +89,12 @@
                     "pathName": "pages/map/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "位置详情",
+                    "pathName": "pages/map/location",
+                    "query": "id=fa24ce1a61893bf704fcd24938e2aa9d",
+                    "scene": null
                 }
             ]
         }

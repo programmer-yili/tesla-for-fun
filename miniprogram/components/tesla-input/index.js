@@ -19,6 +19,10 @@ Component({
         value: {
             type: String|Number,
             value: ''
+        },
+        disabled: {
+            type: Boolean,
+            value: false
         }
     },
 

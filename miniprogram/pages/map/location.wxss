@@ -1,0 +1,90 @@
+/* pages/map/location.wxss */
+
+.location-page {
+    padding: 0 40rpx;
+}
+
+.head-area {
+    padding: 40rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid #ededed 2rpx;
+}
+
+.head-area .meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.head-area .meta .title {
+    font-size: 35rpx;
+    height: 35rpx;
+    line-height: 35rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+}
+
+.head-area .meta .address {
+    font-size: 22rpx;
+    height: 22rpx;
+    line-height: 22rpx;
+    color: #5e5e61;
+    margin-bottom: 35rpx;
+}
+
+.head-area .meta .classification {
+    padding: 9rpx 18rpx;
+    border: solid #efefef 4rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    width: 184rpx;
+    color: #626263;
+}
+
+.head-area .navigation {
+    margin-right: 35rpx;
+    width: 100rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.head-area .navigation .icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-bottom: 25rpx;
+}
+
+.head-area .navigation .label {
+    font-size: 20rpx;
+    color: #7c7c7c;
+}
+
+.info-area {
+    margin-top: 54rpx;
+
+}
+
+.info-area .info-box {
+    margin-bottom: 68rpx;
+}
+
+.info-area .info-box .title {
+    font-size: 24rpx;
+    font-weight: bold;
+    margin-bottom: 22rpx;
+}
+
+.info-area .info-box .content {
+    font-size: 24rpx;
+    line-height: 40rpx;
+}
+
+.info-area .info-box .phone {
+    font-size: 24rpx;
+    text-decoration: underline;
+}
