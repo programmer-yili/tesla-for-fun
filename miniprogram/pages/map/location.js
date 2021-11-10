@@ -1,5 +1,3 @@
-// pages/map/location.js
-
 import { qqmapsdk } from '../../utils/location.js'
 
 Page({
@@ -15,6 +13,8 @@ Page({
         chargingInfo: '',
         phoneInfo: [],
         distance: '',
+        latitude: 0,
+        longitude: 0,
     },
 
     /**
@@ -24,7 +24,30 @@ Page({
         this.db = wx.cloud.database()
         
         this.db.collection('marker').where({_id: options.id}).get().then(res=>{
+            const { latitude, longitude } = res.data[0]
+            this.setData(
+                {latitude, longitude}
+            )
             this._buildLocationModal(res.data[0])
+        })
+    },
+
+    makePhoneCall(e) {
+        wx.makePhoneCall({
+          phoneNumber: e.currentTarget.dataset.phoneNumber,
+        })
+    },
+
+
+    onNavigationTap() {
+        wx.openLocation({
+          latitude: parseFloat(this.data.latitude),
+          longitude: parseFloat(this.data.longitude),
+          name: this.data.name,
+          address: this.data.address,
+          fail: (error) => {
+              console.log(error)
+          }
         })
     },
 

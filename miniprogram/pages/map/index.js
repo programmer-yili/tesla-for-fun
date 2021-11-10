@@ -12,7 +12,8 @@ Page({
         longitude: 0,
         markers: [],
         allMarkers: [],
-        markerClassifications: []
+        markerClassifications: [],
+        isSearching: false
     },
 
     /**
@@ -33,6 +34,12 @@ Page({
         this.setData({
             latitude: location.lat,
             longitude: location.lng
+        })
+    },
+
+    onSearch() {
+        this.setData({
+            isSearching: true
         })
     },
 

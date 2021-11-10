@@ -1,9 +1,9 @@
 .search-input {
-
     width: 495rpx;
     height: 50rpx;
     border-radius: 22rpx;
     background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
     display: flex;
     flex-direction: row;
     align-items: center;

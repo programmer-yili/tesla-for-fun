@@ -35,6 +35,10 @@ Component({
                 isClearable: false,
                 value: ''
             })
+        },
+        onConfirm(e) {
+            const { value } = e.detail
+            this.triggerEvent('confirm', value)
         }
     }
 })

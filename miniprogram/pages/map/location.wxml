@@ -12,7 +12,7 @@
             </view>
         </view>
 
-        <view class="navigation">
+        <view class="navigation" bindtap="onNavigationTap">
             <image class="icon" src="../../images/navigate.png"></image>
             <view class="label">{{ distance }}</view>
         </view>
@@ -32,7 +32,7 @@
 
         <view class="info-box" wx:for="{{ phoneInfo }}" wx:key="index">
             <view class="title">服务电话</view>
-            <view class="phone">{{ item }}</view>
+            <view class="phone" bindtap="makePhoneCall" data-phone-number="{{ item }}">{{ item }}</view>
         </view>
     </view>
 </view>
