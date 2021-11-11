@@ -35,6 +35,7 @@ Component({
                 isClearable: false,
                 value: ''
             })
+            this.triggerEvent('clear')
         },
         onConfirm(e) {
             const { value } = e.detail

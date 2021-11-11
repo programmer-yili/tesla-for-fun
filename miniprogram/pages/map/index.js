@@ -1,6 +1,6 @@
 // pages/map/index.js
 
-import {getCurrentLocation } from '../../utils/location.js'
+import {getCurrentLocation, qqmapsdk } from '../../utils/location.js'
 
 Page({
 
@@ -13,7 +13,8 @@ Page({
         markers: [],
         allMarkers: [],
         markerClassifications: [],
-        isSearching: false
+        isSearching: false,
+        locationResult: []
     },
 
     /**
@@ -37,10 +38,60 @@ Page({
         })
     },
 
-    onSearch() {
+    onClear() {
+        this.setData({
+            isSearching: false,
+            locationResult: []
+        })
+    },
+
+    gotoLocation(e) {
+        const { latitude, longitude } = e.currentTarget.dataset.location
+        let markers = this.data.markers
+        markers.push(                {
+            id: 99999,
+            width: 32,
+            height: 32,
+            iconPath: '../../images/Pin.png',
+            latitude, 
+            longitude
+        })
+        this.setData({markers})
+        // 中心区域跳转到某个经纬度位置
+        this.mapCtx.moveToLocation({
+            latitude, longitude
+        })
+
+        this.setData({
+            isSearching: false
+        })
+
+    },
+
+    onSearch(e) {
+        qqmapsdk.getSuggestion({
+            keyword: e.detail,
+            success: (res) => {
+                this._buildLocationResult(res.data)
+            }
+        })
         this.setData({
             isSearching: true
         })
+    },
+
+    _buildLocationResult(originResult) {
+        let locationResult = []
+        originResult.forEach( item => {
+            console.log(item)
+            locationResult.push({
+                name: item.title,
+                address: item.address,
+                latitude: item.location.lat,
+                longitude: item.location.lng
+            })
+        })
+        this.setData({locationResult})
     },
 
     _buildMarkerClassifications(originMarkerClassifications) {

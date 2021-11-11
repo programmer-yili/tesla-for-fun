@@ -11,7 +11,7 @@
 ></map>
 
   <image wx:if="{{!isSearching}}" class="current-location-icon" bindtap="onCurrentLocationClick" src="../../images/location.png"></image>
-    <tesla-search-input bindconfirm="onSearch" style="position: absolute;top: 94rpx;left: 44rpx;"></tesla-search-input>
+    <tesla-search-input bindconfirm="onSearch" bindclear="onClear" style="position: absolute;top: 104rpx; left: 44rpx;z-index: 1;" ></tesla-search-input>
 
     <scroll-view  wx:if="{{!isSearching}}" scroll-x class="marker-classification-area">
         <view style="{{ 'padding-left: 20rpx; width: ' + (222 * markerClassifications.length ) + 'rpx' }}">
@@ -23,18 +23,12 @@
     </scroll-view>
     <view class="search-area" wx:if="{{isSearching}}">
         <view class="search-content">
-            <view class="location-box">
+            <view class="location-box" wx:for="{{ locationResult }}" wx:key="index" 
+            bindtap="gotoLocation" data-location="{{ item  }}">
               <image class="icon" src="../../images/location_search.png"></image>
               <view class="info-box">
-                <view class="name">浙江大学</view>
-                <view class="address">余杭塘路866号</view>
-              </view>
-            </view>
-            <view class="location-box">
-              <image class="icon" src="../../images/location_search.png"></image>
-              <view class="info-box">
-                <view class="name">浙江大学</view>
-                <view class="address">余杭塘路866号</view>
+                <view class="name">{{ item.name }}</view>
+                <view class="address">{{ item.address }}</view>
               </view>
             </view>
         </view>

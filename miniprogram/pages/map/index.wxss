@@ -19,7 +19,7 @@
 
 .marker-classification-area {
     position: absolute;
-    top: 154rpx;
+    top: 170rpx;
     left: 44rpx;
     display: flex;
     flex-direction: row;
@@ -69,7 +69,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
     background-color: #fff;
 }
 

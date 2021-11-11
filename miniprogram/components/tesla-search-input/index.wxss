@@ -19,6 +19,7 @@
 .search-input input{
     font-size: 24rpx;
     flex: 1;
+
 }
 .search-input .placeholder {
     font-size: 24rpx;
@@ -27,5 +28,7 @@
 .search-input .clear-icon {
     width: 22rpx;
     height: 22rpx;
-    margin-right: 24rpx;
+    position: absolute;
+    right: 22rpx;
+    z-index: 9999;
 }
