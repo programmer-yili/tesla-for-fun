@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "tesla-input": "../../components/tesla-input/index"
+  }
+}

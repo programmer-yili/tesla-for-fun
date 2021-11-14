@@ -43,6 +43,7 @@ Page({
             isSearching: false,
             locationResult: []
         })
+        this._clearSearchMarker()
     },
 
     gotoLocation(e) {
@@ -78,6 +79,22 @@ Page({
         this.setData({
             isSearching: true
         })
+    },
+
+    _clearSearchMarker() {
+        // 清除当前marker节点
+        
+        let markers = this.data.markers.filter(item=>{
+            return item.id !== 99999
+        })
+
+        this.setData({
+            markers
+        })
+
+
+        // 跳回到当前用户所在地
+        this.mapCtx.moveToLocation()
     },
 
     _buildLocationResult(originResult) {
@@ -237,5 +254,6 @@ Page({
     },
     onCurrentLocationClick() {
         this.mapCtx.moveToLocation()
+        this._clearSearchMarker()
     }
 })

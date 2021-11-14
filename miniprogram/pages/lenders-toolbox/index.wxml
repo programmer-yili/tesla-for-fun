@@ -1,0 +1,14 @@
+<view class="lenders-toolbox-page">
+    <view class="head-line">
+        金融服务
+    </view>
+
+    <view class="product-selection-area">
+        <view class="title">
+            请选择您感兴趣的车型
+        </view>
+         <tesla-input label="选择车系" />
+         <tesla-input label="选择车型" />
+         <tesla-input label="车辆价格(元)"/>
+    </view>
+</view>

@@ -95,6 +95,12 @@
                     "pathName": "pages/map/location",
                     "query": "id=fa24ce1a61893bf704fcd24938e2aa9d",
                     "scene": null
+                },
+                {
+                    "name": "lenders-toolbox",
+                    "pathName": "pages/lenders-toolbox/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
