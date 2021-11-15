@@ -1,1 +1,25 @@
 /* pages/lenders-toolbox/index.wxss */
+.lenders-toolbox-page {
+    padding: 0 45rpx;
+}
+.lenders-toolbox-page .head-line {
+    margin-top: 36rpx;
+    font-size: 36rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lenders-toolbox-page .section {
+    margin-top: 80rpx;
+    margin-bottom: 36rpx;
+}
+
+.section .title {
+    font-size: 26rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+}
+
+.section .form-item {
+    margin-bottom: 40rpx;
+}

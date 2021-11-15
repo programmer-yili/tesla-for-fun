@@ -97,7 +97,7 @@
                     "scene": null
                 },
                 {
-                    "name": "lenders-toolbox",
+                    "name": "贷款页面",
                     "pathName": "pages/lenders-toolbox/index",
                     "query": "",
                     "scene": null

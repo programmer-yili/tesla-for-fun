@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "tesla-input": "../../components/tesla-input/index"
+    "tesla-input": "../../components/tesla-input/index",
+    "tesla-picker": "../../components/tesla-picker/index",
+    "tesla-selection": "../../components/tesla-selection/index"
   }
 }

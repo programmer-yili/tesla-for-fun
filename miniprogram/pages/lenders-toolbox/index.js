@@ -5,7 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        form: {
+            productType: 'Model3'
+        }
     },
 
     /**
@@ -41,6 +43,16 @@ Page({
      */
     onUnload: function () {
 
+    },
+
+    onChange(e) {
+        let form = this.data.form
+        form.productType = e.detail.value
+        this.setData({form})
+    },
+
+    onSelectionChange(e) {
+        console.log(e.detail)
     },
 
     /**

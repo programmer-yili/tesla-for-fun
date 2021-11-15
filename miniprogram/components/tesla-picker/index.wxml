@@ -1,0 +1,3 @@
+<picker bindchange="onChange" value="{{ index }}" range="{{options}}">
+    <tesla-input disabled required label="{{ label }}" value="{{ value }}" />
+</picker>

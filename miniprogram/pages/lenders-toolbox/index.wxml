@@ -3,12 +3,29 @@
         金融服务
     </view>
 
-    <view class="product-selection-area">
+    <view class="section product-selection-area">
         <view class="title">
             请选择您感兴趣的车型
         </view>
-         <tesla-input label="选择车系" />
-         <tesla-input label="选择车型" />
-         <tesla-input label="车辆价格(元)"/>
+        <view class="form-item">
+            <tesla-picker label="选择车系" defaultValue="{{ form.productType }}" options="{{ ['modal3', 'modalY'] }}" bindchange="onChange" />
+        </view>
+        
+        <view class="form-item">
+            <tesla-picker label="选择车型" defaultValue="{{ form.line }}" options="{{ ['高性能版', '四驱版'] }}" bindchange="onChange" />
+        </view>
+
+        <view class="form-item">
+            <tesla-input label="车辆价格(元)"/>
+        </view>
+    </view>
+    <view class="section">
+        <view class="title">
+            请选择您感兴趣的车型
+        </view>
+        <view class="form-item">
+            <tesla-selection options="{{ ['合作贷款机构', '第三方贷款机构'] }}" bindchange="onSelectionChange" />
+        </view>
+
     </view>
 </view>
