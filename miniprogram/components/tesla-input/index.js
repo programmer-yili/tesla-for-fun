@@ -23,6 +23,14 @@ Component({
         disabled: {
             type: Boolean,
             value: false
+        },
+        writable: {
+            type: Boolean,
+            value: true,
+        },
+        tips: {
+            type: String,
+            value: ''
         }
     },
 

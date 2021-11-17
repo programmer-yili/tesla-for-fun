@@ -8,24 +8,122 @@
             请选择您感兴趣的车型
         </view>
         <view class="form-item">
-            <tesla-picker label="选择车系" defaultValue="{{ form.productType }}" options="{{ ['modal3', 'modalY'] }}" bindchange="onChange" />
+            <tesla-picker label="选择车系" defaultValue="modal3" options="{{ ['modal3', 'modalY'] }}" bindchange="onChange" />
         </view>
         
         <view class="form-item">
-            <tesla-picker label="选择车型" defaultValue="{{ form.line }}" options="{{ ['高性能版', '四驱版'] }}" bindchange="onChange" />
+            <tesla-picker label="选择车型" defaultValue="高性能版" options="{{ ['高性能版', '四驱版'] }}" bindchange="onChange" />
         </view>
 
         <view class="form-item">
-            <tesla-input label="车辆价格(元)"/>
+            <tesla-input label="车辆价格(元)" />
         </view>
     </view>
-    <view class="section">
+    <view class="section" style="margin-bottom: 106rpx;">
         <view class="title">
-            请选择您感兴趣的车型
+            选择金融方案
         </view>
         <view class="form-item">
             <tesla-selection options="{{ ['合作贷款机构', '第三方贷款机构'] }}" bindchange="onSelectionChange" />
         </view>
+        <view class="tips">
+            通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉
+        </view>
+        <view class="form-item">
+            <tesla-picker label="金融产品" defaultValue="{{ form.line }}" options="{{ ['高性能版', '四驱版'] }}" bindchange="onChange" />
+        </view>
+
+        <view class="form-item">
+            <tesla-picker label="期数" defaultValue="24期" options="{{ ['12期', '24期'] }}" bindchange="onChange" />
+        </view>
+
+        <view class="form-item">
+            <tesla-input label="首付/保障金比例 %" />
+        </view>
+
+        <view class="form-item">
+            <tesla-input label="年化率 %" value="4.00" disabled tips="折合年化利率7.30%" />
+        </view>
+    </view>
+
+    <view class="section">
+        <view class="title">
+            查看适用金融机构
+        </view>
+
+        <view class="form-item">
+            <tesla-picker label="上牌省份" defaultValue="浙江" options="{{ ['浙江', '上海'] }}" bindchange="onChange" />
+        </view>
+
+        
+        <view class="form-item">
+            <tesla-picker label="上牌城市" defaultValue="杭州" options="{{ ['杭州', '上海'] }}" bindchange="onChange" />
+        </view>
+
+        <view class="form-item">
+            <tesla-picker label="上牌类型" defaultValue="个人" options="{{ ['个人', '企业'] }}" bindchange="onChange" />
+        </view>
+
 
     </view>
+
+    <view class="section">
+        <view class="tips">
+            通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定
+        </view>
+
+        <view class="bank-area">
+            <view class="bank-box">
+                <image mode="heightFix" src="../../images/pingan.png"></image>
+            </view>
+
+            <view class="bank-box">
+                <image mode="heightFix" src="../../images/pingan.png"></image>
+            </view>
+        </view>
+    </view>
 </view>
+
+<view class="float-card">
+        <view class="product-box">
+            <image class="product-image" mode="widthFix" src="../../images/car.png"></image>
+            <view class="product-name">Model 3</view>
+            <view class="product-line-name">高性能版</view>
+        </view>
+
+        <view class="action-box">
+            <view class="label">计算结果</view>
+            <image class="icon" src="../../images/ic_arrow_down.svg"></image>
+        </view>
+
+        <view class="calculate-box">
+            <view class="calculate-item">
+                <view class="label">首付款/保障金</view>
+                <view class="number">￥35,385</view>
+            </view>
+            <view class="calculate-item">
+                <view class="label">贷款/融资金额</view>
+                <view class="number">￥200,515</view>
+            </view>
+            <view class="calculate-item" style="margin: 35rpx 0;">
+                <view class="label">尾款比例</view>
+                <view class="number">0%</view>
+            </view>
+            <view class="calculate-item">
+                <view class="label">尾款金额</view>
+                <view class="number">￥0</view>
+            </view>
+            <view class="calculate-item">
+                <view class="label">月供</view>
+                <view class="number" style="font-size: 35rpx;">￥17,378</view>
+            </view>
+        </view>
+
+        <view class="test-drive-btn">
+            预约试驾
+        </view>
+
+        <view class="tips">
+            预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾
+        </view>
+    </view>

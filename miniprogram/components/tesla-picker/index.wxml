@@ -1,3 +1,4 @@
-<picker bindchange="onChange" value="{{ index }}" range="{{options}}">
-    <tesla-input disabled required label="{{ label }}" value="{{ value }}" />
+<picker class="picker" bindchange="onChange" value="{{ index }}" range="{{options}}">
+    <tesla-input writable="{{ false }}" required label="{{ label }}" value="{{ value }}"/>
+    <image class="icon-down" src="../../images/ic_arrow_down.svg" />
 </picker>

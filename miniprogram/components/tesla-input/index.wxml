@@ -1,5 +1,7 @@
 <view class="input-item">
     <view wx:if="{{ label }}" class="label">{{ label }}</view>
-    <input disabled="{{disabled}}" class="{{ isError ? 'error' : '' }}" auto-focus bindinput="onInput" model:value="{{ value }}"  />
+    <input disabled="{{ !writable || disabled }}" class="{{ isError ? 'error' : '' }}  {{ disabled ? 'disabled' : '' }}" auto-focus bindinput="onInput" model:value="{{ value }}"  />
     <view wx:if="{{ isError }}" class="error-message">{{ errorMessage }}</view>
+    <view wx:if="{{ tips }}" class="tips">{{ tips }}</view>
+
 </view>

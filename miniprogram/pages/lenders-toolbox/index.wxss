@@ -23,3 +23,143 @@
 .section .form-item {
     margin-bottom: 40rpx;
 }
+
+.section .tips {
+    font-size: 22rpx;
+    color: #39393c;
+    line-height: 36rpx;
+    margin-bottom: 60rpx;
+}
+
+.bank-area {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.bank-area .bank-box {
+    width: 100%;
+    height: 70rpx;
+    border-radius: 15rpx;
+    background-color: #fff;
+    border: 2rpx #d2d2d2 solid;
+    margin-bottom: 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.bank-area .bank-box image {
+    height: 30rpx;
+}
+
+.float-card {
+    background-color: #fff;
+    width: calc(100vw - 90rpx);
+    position: fixed;
+    bottom: 0;
+    left: 45rpx;
+    z-index: 9999;
+    padding: 35rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.float-card .product-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80rpx;
+}
+
+.float-card .product-box .product-image {
+    width: 476rpx;
+    margin-bottom: 80rpx;
+}
+
+.float-card .product-box .product-name {
+    font-size: 35rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+
+.float-card .product-box .product-line-name {
+    font-size: 40rpx;
+    font-weight: bold;
+}
+
+
+.float-card .action-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 25rpx;
+    border-bottom: solid #d4d4d4 2rpx;
+}
+
+.float-card .action-box .label {
+    font-size: 30rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.float-card .action-box .icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+
+.float-card .calculate-box {
+    margin-top: 50rpx;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.float-card .calculate-box .calculate-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.float-card .calculate-box .calculate-item .label {
+    font-size: 24rpx;
+    font-weight: bold;
+}
+
+
+.float-card .calculate-box .calculate-item .number {
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+
+.float-card .test-drive-btn {
+    width: 530rpx;
+    height: 70rpx;
+    border: 4rpx #000 solid;
+    border-radius: 35rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 22rpx;
+    font-weight: bold;
+    margin-top: 28rpx;
+}
+
+.float-card .tips {
+    margin-top: 65rpx;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    color: #a4a4a5;
+}
+

@@ -26,10 +26,23 @@
     border-color: red;
 }
 
+.input-item .disabled {
+    background-color: #e2e2e3;
+    color: #9e9e9f;
+}
+
 .input-item .error-message {
     position: absolute;
     left: 25rpx;
     font-size: 20rpx;
     bottom: -35rpx;
     color: red;
+}
+
+.input-item .tips {
+    position: absolute;
+    right: 25rpx;
+    font-size: 20rpx;
+    bottom: -35rpx;
+    color: #848484;
 }
