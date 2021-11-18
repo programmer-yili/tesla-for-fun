@@ -8,15 +8,15 @@
             请选择您感兴趣的车型
         </view>
         <view class="form-item">
-            <tesla-picker label="选择车系" defaultValue="modal3" options="{{ ['modal3', 'modalY'] }}" bindchange="onChange" />
+            <tesla-picker label="选择车系" defaultValue="{{ product }}" options="{{ products }}" bindchange="onProductSelected"/>
         </view>
         
         <view class="form-item">
-            <tesla-picker label="选择车型" defaultValue="高性能版" options="{{ ['高性能版', '四驱版'] }}" bindchange="onChange" />
+            <tesla-picker label="选择车型" defaultValue="{{ productLine }}" options="{{ productLines }}" bindchange="onProductLineSelected" />
         </view>
 
         <view class="form-item">
-            <tesla-input label="车辆价格(元)" />
+            <tesla-input label="车辆价格(元)" writable="{{ false }}" value="{{ price }}"  />
         </view>
     </view>
     <view class="section" style="margin-bottom: 106rpx;">
@@ -24,25 +24,25 @@
             选择金融方案
         </view>
         <view class="form-item">
-            <tesla-selection options="{{ ['合作贷款机构', '第三方贷款机构'] }}" bindchange="onSelectionChange" />
+            <tesla-selection options="{{ financePlan }}" bindchange="onSelectionChange" />
         </view>
         <view class="tips">
             通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉
         </view>
         <view class="form-item">
-            <tesla-picker label="金融产品" defaultValue="{{ form.line }}" options="{{ ['高性能版', '四驱版'] }}" bindchange="onChange" />
+            <tesla-picker label="金融产品" defaultValue="{{ financeProduct }}" options="{{ financeProducts }}" bindchange="onChange" />
         </view>
 
         <view class="form-item">
-            <tesla-picker label="期数" defaultValue="24期" options="{{ ['12期', '24期'] }}" bindchange="onChange" />
+            <tesla-picker label="期数" defaultValue="{{ periods }}" options="{{ periodsOptions }}" bindchange="onChange" />
         </view>
 
         <view class="form-item">
-            <tesla-input label="首付/保障金比例 %" />
+            <tesla-input label="首付/保障金比例 %" value="{{rate}}" />
         </view>
 
         <view class="form-item">
-            <tesla-input label="年化率 %" value="4.00" disabled tips="折合年化利率7.30%" />
+            <tesla-input label="年化率 %" value="{{ annualizedRate }}" disabled tips="折合年化利率7.30%" />
         </view>
     </view>
 
@@ -83,17 +83,18 @@
         </view>
     </view>
 </view>
-
+<view class="occupation-box">
+</view>
 <view class="float-card">
-        <view class="product-box">
-            <image class="product-image" mode="widthFix" src="../../images/car.png"></image>
-            <view class="product-name">Model 3</view>
-            <view class="product-line-name">高性能版</view>
+        <view class="product-box {{ isCollapse ? 'collapse' : '' }}">
+            <image class="product-image" mode="widthFix" src="{{ currentProductImage }}"></image>
+            <view class="product-name">{{ product }}</view>
+            <view class="product-line-name">{{ productLine }}</view>
         </view>
 
         <view class="action-box">
             <view class="label">计算结果</view>
-            <image class="icon" src="../../images/ic_arrow_down.svg"></image>
+            <image class="icon" bindtap="toggleCollapse"  src="{{ isCollapse ? '../../images/minus-circle.png': '../../images/plus-circle.png' }}"></image>
         </view>
 
         <view class="calculate-box">
@@ -101,15 +102,15 @@
                 <view class="label">首付款/保障金</view>
                 <view class="number">￥35,385</view>
             </view>
-            <view class="calculate-item">
+            <view class="calculate-item {{ !isCollapse ? 'hide' : '' }}">
                 <view class="label">贷款/融资金额</view>
                 <view class="number">￥200,515</view>
             </view>
-            <view class="calculate-item" style="margin: 35rpx 0;">
+            <view class="calculate-item {{ !isCollapse ? 'hide' : '' }}" style="{{ isCollapse ? 'margin: 35rpx 0;' : '' }}">
                 <view class="label">尾款比例</view>
                 <view class="number">0%</view>
             </view>
-            <view class="calculate-item">
+            <view class="calculate-item {{ !isCollapse ? 'hide' : '' }}">
                 <view class="label">尾款金额</view>
                 <view class="number">￥0</view>
             </view>
@@ -123,7 +124,7 @@
             预约试驾
         </view>
 
-        <view class="tips">
+        <view  class="tips {{ !isCollapse ? 'hide' : '' }}">
             预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾预约试驾
         </view>
-    </view>
+</view>

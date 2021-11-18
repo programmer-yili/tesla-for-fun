@@ -8,7 +8,7 @@
         <view class="magazine-title">{{magezine.title}}</view>
     </view>
 
-    <view class="icon-banner">
+    <view class="icon-banner" bindtap="gotoLendersToolbox">
         <image class="banner-bg credit-card" mode="widthFix" src="https://china-community-app.tesla.cn/wechatmini/credit_card.png"></image>
         <view class="content">
             <view class="info">

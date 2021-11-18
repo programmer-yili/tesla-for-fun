@@ -33,6 +33,11 @@ Page({
             this.setData({ magezine })
         })
     },
+    gotoLendersToolbox() {
+        wx.navigateTo({
+          url: '/pages/lenders-toolbox/index',
+        })
+    },
     onSwiperBookBtnClick() {
         this.setData({selectModelShow: true})
     },
