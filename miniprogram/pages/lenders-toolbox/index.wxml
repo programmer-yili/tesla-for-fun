@@ -24,21 +24,21 @@
             选择金融方案
         </view>
         <view class="form-item">
-            <tesla-selection options="{{ financePlan }}" bindchange="onSelectionChange" />
+            <tesla-selection options="{{ financePlans }}" bindchange="onFinancePlanChange" />
         </view>
         <view class="tips">
             通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉
         </view>
         <view class="form-item">
-            <tesla-picker label="金融产品" defaultValue="{{ financeProduct }}" options="{{ financeProducts }}" bindchange="onChange" />
+            <tesla-picker label="金融产品" defaultValue="{{ financeProduct }}" options="{{ financeProducts }}" bindchange="onFinanceProductChange" />
         </view>
 
         <view class="form-item">
-            <tesla-picker label="期数" defaultValue="{{ periods }}" options="{{ periodsOptions }}" bindchange="onChange" />
+            <tesla-picker label="期数" defaultValue="{{ periods }}" options="{{ periodsOptions }}" bindchange="onPeriodsChange" />
         </view>
 
         <view class="form-item">
-            <tesla-input label="首付/保障金比例 %" value="{{rate}}" />
+            <tesla-input label="首付/保障金比例 %" value="{{rate}}" bindinput="onRateInput"  />
         </view>
 
         <view class="form-item">
@@ -100,11 +100,11 @@
         <view class="calculate-box">
             <view class="calculate-item">
                 <view class="label">首付款/保障金</view>
-                <view class="number">￥35,385</view>
+                <view class="number">￥{{downPayment}}</view>
             </view>
             <view class="calculate-item {{ !isCollapse ? 'hide' : '' }}">
                 <view class="label">贷款/融资金额</view>
-                <view class="number">￥200,515</view>
+                <view class="number">￥{{loan}}</view>
             </view>
             <view class="calculate-item {{ !isCollapse ? 'hide' : '' }}" style="{{ isCollapse ? 'margin: 35rpx 0;' : '' }}">
                 <view class="label">尾款比例</view>
@@ -116,7 +116,7 @@
             </view>
             <view class="calculate-item">
                 <view class="label">月供</view>
-                <view class="number" style="font-size: 35rpx;">￥17,378</view>
+                <view class="number" style="font-size: 35rpx;">￥{{mountlyPayment}}</view>
             </view>
         </view>
 

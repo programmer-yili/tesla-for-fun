@@ -12,15 +12,38 @@ Page({
         price: 0,
         priceList: [],
         financePlan: '合作贷款机构',
-        financePlans: ['合作贷款机构', '官方租聘机构'],
+        financePlans: [],
         financeProduct: '标准贷款',
         financeProducts: ['标准贷款'],
         periodsOptions: ['12期', '24期'],
         periods: '12期',
         rate: 15,
+        annualizedRateList: [],
         annualizedRate: '4.00',
         isCollapse: false,
-        originProductData: []
+        originProductData: [],
+        downPayment: 0,
+        loan: 0
+    },
+
+    onRateInput(e) {
+        this.setData({
+            rate: e.detail.value
+        })
+        this._compute()
+    },
+
+    _compute() {
+        let downPayment = this.data.price * (this.data.rate / 100)
+        let loan = this.data.price - downPayment
+        let mountlyPayment = (Number.parseFloat(loan) * (1+this.data.annualizedRate/100) ) / Number.parseFloat(this.data.periods)
+        
+        mountlyPayment = Number.parseInt(mountlyPayment * 100) / 100
+        this.setData({
+            downPayment: downPayment.toLocaleString(),
+            loan: loan.toLocaleString(),
+            mountlyPayment: mountlyPayment.toLocaleString()
+        })
     },
 
     /**
@@ -29,6 +52,7 @@ Page({
     onLoad: function (options) {
         this.db = wx.cloud.database()
         this._loadProducts()
+        this._loadFinancePlans()
     },
     _loadProducts() {
         this.db.collection('product')
@@ -49,6 +73,66 @@ Page({
             this.changeProduct(index)
 
         })
+    },
+    _loadFinancePlans() {
+        this.db.collection('finance_plan')
+        .get().then(res=>{
+            this._processFinancePlanOriginData(res.data)
+        })
+    },
+    _processFinancePlanOriginData(originData) {
+        let financePlans = []
+        originData.forEach(item=>{
+            financePlans.push(item.name)
+        })
+        this.setData({
+            financePlans,
+            originData
+        })
+        this._changeFinancePlan()
+
+    },
+    _changeFinancePlan(index = 0) {
+        let financeProducts = []
+        this.data.originData[index].product.forEach(item=>{
+            financeProducts.push(item.name)
+        })
+        const currentProducts = this.data.originData[index].product
+
+        this.setData({
+            financeProducts,
+            currentProducts
+        })
+        this._changeFinanceProduct()
+    },
+    _changeFinanceProduct(index = 0) {
+        const financeProduct = this.data.currentProducts[index].name
+        let periodsOptions = this.data.currentProducts[index].periodsOptions
+        let annualizedRateList = this.data.currentProducts[index].rate
+        this.setData({
+            periodsOptions,
+            financeProduct,
+            annualizedRateList
+        })
+        this._changePeriods()
+    },
+    _changePeriods(index = 0) {
+        let periods = this.data.periodsOptions[index]
+        let annualizedRate = this.data.annualizedRateList[index]
+        this.setData({
+            periods,
+            annualizedRate
+        })
+        this._compute()
+
+    },
+    onPeriodsChange(e) {
+        const {index} = e.detail
+        this._changePeriods(index)
+    },
+    onFinanceProductChange(e) {
+        const {index} = e.detail
+        this._changeFinanceProduct(index)
     },
     onProductSelected(e) {
         this.changeProduct(e.detail.index)
@@ -77,6 +161,8 @@ Page({
             price: priceList[0],
             currentProductImage: currentProduct.carPic
         })
+
+        this._compute()
     },
 
     toggleCollapse() {
@@ -117,8 +203,9 @@ Page({
         this.setData({form})
     },
 
-    onSelectionChange(e) {
-        console.log(e.detail)
+    onFinancePlanChange(e) {
+        const { index } = e.detail
+        this._changeFinancePlan(index)
     },
 
     /**

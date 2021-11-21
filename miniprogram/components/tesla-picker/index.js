@@ -12,8 +12,6 @@ Component({
             type: String | Number,
             value: '',
             observer(newValue, oldValue) {
-                console.log(1)
-                console.log(newValue)
                 this.initValue(newValue)
             }
         },
@@ -28,6 +26,7 @@ Component({
      */
     data: {
         value: '',
+        index: 0
     },
 
     lifetimes: {
@@ -38,8 +37,10 @@ Component({
      */
     methods: {
         initValue(value) {
+            let index = this.properties.options.indexOf(value)
             this.setData({
-                value
+                value,
+                index
             })
         },
         onChange(e) {

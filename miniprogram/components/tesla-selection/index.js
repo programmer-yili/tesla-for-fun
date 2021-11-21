@@ -7,7 +7,7 @@ Component({
         options: {
             type: Array,
             default: []
-        }
+        },
     },
 
     /**

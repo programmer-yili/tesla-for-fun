@@ -45,8 +45,9 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        onInput() {
+        onInput(e) {
             this.checkError()
+            this.triggerEvent('input', e.detail)
         },
         checkError() {
             this._handleRequired()
