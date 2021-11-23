@@ -8,11 +8,11 @@
             请选择您感兴趣的车型
         </view>
         <view class="form-item">
-            <tesla-picker label="选择车系" defaultValue="{{ product }}" options="{{ products }}" bindchange="onProductSelected"/>
+            <tesla-picker title="选择车系" defaultValue="{{ product }}" options="{{ products }}" bindchange="onProductSelected"/>
         </view>
         
         <view class="form-item">
-            <tesla-picker label="选择车型" defaultValue="{{ productLine }}" options="{{ productLines }}" bindchange="onProductLineSelected" />
+            <tesla-picker title="选择车型" defaultValue="{{ productLine }}" options="{{ productLines }}" bindchange="onProductLineSelected" />
         </view>
 
         <view class="form-item">
@@ -30,11 +30,11 @@
             通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉指定的租聘服务通过特斯拉
         </view>
         <view class="form-item">
-            <tesla-picker label="金融产品" defaultValue="{{ financeProduct }}" options="{{ financeProducts }}" bindchange="onFinanceProductChange" />
+            <tesla-picker title="金融产品" defaultValue="{{ financeProduct }}" options="{{ financeProducts }}" bindchange="onFinanceProductChange" />
         </view>
 
         <view class="form-item">
-            <tesla-picker label="期数" defaultValue="{{ periods }}" options="{{ periodsOptions }}" bindchange="onPeriodsChange" />
+            <tesla-picker title="期数" defaultValue="{{ periods }}" options="{{ periodsOptions }}" bindchange="onPeriodsChange" />
         </view>
 
         <view class="form-item">
@@ -52,18 +52,13 @@
         </view>
 
         <view class="form-item">
-            <tesla-picker label="上牌省份" defaultValue="浙江" options="{{ ['浙江', '上海'] }}" bindchange="onChange" />
+            <tesla-picker title="上牌省份" defaultValue="{{ currentProvince }}" options="{{ allProvinces }}" labelKey="name" bindchange="onProvinceChange" />
         </view>
 
         
         <view class="form-item">
-            <tesla-picker label="上牌城市" defaultValue="杭州" options="{{ ['杭州', '上海'] }}" bindchange="onChange" />
+            <tesla-picker title="上牌城市" defaultValue="{{ currentCity }}" options="{{ cities }}" bindchange="onCityChange" labelKey="name"/>
         </view>
-
-        <view class="form-item">
-            <tesla-picker label="上牌类型" defaultValue="个人" options="{{ ['个人', '企业'] }}" bindchange="onChange" />
-        </view>
-
 
     </view>
 
@@ -73,12 +68,8 @@
         </view>
 
         <view class="bank-area">
-            <view class="bank-box">
-                <image mode="heightFix" src="../../images/pingan.png"></image>
-            </view>
-
-            <view class="bank-box">
-                <image mode="heightFix" src="../../images/pingan.png"></image>
+            <view class="bank-box" wx:for="{{ financeOrgs }}" wx:key="index">
+                <image mode="heightFix" src="{{ item.logo }}"></image>
             </view>
         </view>
     </view>
@@ -86,6 +77,7 @@
 <view class="occupation-box">
 </view>
 <view class="float-card">
+
         <view class="product-box {{ isCollapse ? 'collapse' : '' }}">
             <image class="product-image" mode="widthFix" src="{{ currentProductImage }}"></image>
             <view class="product-name">{{ product }}</view>

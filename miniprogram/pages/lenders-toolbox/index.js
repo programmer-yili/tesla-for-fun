@@ -23,7 +23,15 @@ Page({
         isCollapse: false,
         originProductData: [],
         downPayment: 0,
-        loan: 0
+        loan: 0,
+        allProvinces: [],
+        allCities: [],
+        allFinanceOrgs: [],
+        financeOrgs: [],
+        province: [],
+        cities: [],
+        currentProvince: '',
+        currentCity: ''
     },
 
     onRateInput(e) {
@@ -53,6 +61,59 @@ Page({
         this.db = wx.cloud.database()
         this._loadProducts()
         this._loadFinancePlans()
+        this._loadProvinces()
+    },
+    onProvinceChange(e) {
+        this._changeProvince(e.detail.index)
+    },
+    onCityChange(e) {
+        const { index, value } = e.detail
+        this.setData({
+            currentCity: value
+        })
+        const currentCity = this.data.allCities[index]
+        const result = this.data.allFinanceOrgs.filter(item => {
+            return currentCity['finance_orgs'].includes(item._id)
+        })
+        this.setData({financeOrgs: result})
+    },
+    _changeProvince(index = 0) {
+        const currentProvince = this.data.allProvinces[index]
+        this.setData({
+            currentProvince: currentProvince.name
+        })
+        this._changeCities(currentProvince.cities)
+    },
+    _changeCities(cities) {
+        const result = this.data.allCities.filter( item=> {
+            return cities.includes(item._id)
+        })
+        const currentCity = result[0]
+        const financeOrgs = this.data.allFinanceOrgs.filter(item => {
+            return currentCity['finance_orgs'].includes(item._id)
+        })
+        this.setData({cities: result, currentCity: result[0].name, financeOrgs})
+    },
+    _loadCities() {
+        return this.db.collection('city').get()
+    },
+    _loadFinanceOrgs() {
+        return this.db.collection('finance_org').get()
+    },
+    _loadProvinces() {
+        this.db.collection('province').get().then(res=>{
+            const allProvinces = res.data
+            this._loadCities().then(res2=>{
+                const allCities = res2.data
+                this._loadFinanceOrgs().then(res3=>{
+                    const allFinanceOrgs = res3.data
+                    this.setData({allProvinces, allCities, allFinanceOrgs})
+                    this._changeProvince()
+                })
+
+            })
+        })
+
     },
     _loadProducts() {
         this.db.collection('product')
