@@ -1,0 +1,120 @@
+<view class="page">
+    <view class="header">
+        <video id="video" class="video" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" show-center-play-btn show-play-btn controls></video>
+        <view class="title">
+            视频标题
+        </view>
+    </view>
+    <view class="content">
+        <view class="title">
+            Model3/Y <image src="../../images/ic_arrow_down.svg"/>
+        </view>
+        <scroll-view class="category-area" scroll-x="true">
+            <view class="categories-box" style="width: {{ categoryAreaWidth }}; height: 40rpx;">
+            <view class="category active">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+
+            <view class="category">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+            <view class="category">
+                后视镜
+            </view>
+                        
+        </view>
+        </scroll-view>
+        <view class="video-list-area">
+            <view class="section">
+                <view class="video-list-title">
+                    后视镜
+                </view>
+
+                <view class="video-list">
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                </view>
+            </view>
+            <view class="section">
+                <view class="video-list-title">
+                    后视镜
+                </view>
+
+                <view class="video-list">
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                </view>
+            </view>
+            <view class="section">
+                <view class="video-list-title">
+                    后视镜
+                </view>
+
+                <view class="video-list">
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                    <view class="video-box">
+                        <image class="cover" src="../../images/tesla.png"></image>
+                        <view class="video-title">如何查找附近的充电桩</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

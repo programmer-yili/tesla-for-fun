@@ -18,7 +18,7 @@
         </view>
     </view>
 
-    <view class="icon-banner">
+    <view class="icon-banner" bindtap="gotoVideo">
         <image class="banner-bg" src="https://china-community-app.tesla.cn/wechatmini/card_bg.png"></image>
         <view class="content">
             <view class="info">

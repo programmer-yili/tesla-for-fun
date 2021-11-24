@@ -101,6 +101,12 @@
                     "pathName": "pages/lenders-toolbox/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "新手视频",
+                    "pathName": "pages/video/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

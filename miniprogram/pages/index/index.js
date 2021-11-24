@@ -42,6 +42,12 @@ Page({
         this.setData({selectModelShow: true})
     },
 
+    gotoVideo() {
+        wx.navigateTo({
+          url: '/pages/video/index',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
