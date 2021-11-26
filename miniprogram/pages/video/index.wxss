@@ -1,7 +1,10 @@
+button {
+    width: 100%!important;
+}
 .page {
     background-color: #f4f4f4;
     min-height: 100vh;
-    width: 100v;
+    width: 100vw;
 }
 .header {
 }
