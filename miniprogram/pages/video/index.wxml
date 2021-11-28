@@ -10,21 +10,16 @@
         <view class="title" bindtap="onCarModelTap">
             {{ currentCarModel }} <image src="../../images/ic_arrow_down.svg"/>
         </view>
-        <scroll-view wx:if="{{ categories.length }}" class="category-area" scroll-x="true">
-            <view class="categories-box" style="width: {{ categoryAreaWidth }}; height: 40rpx;">
-            <view wx:for="{{ categories }}" wx:key="index" class="category {{ currentSubCategoryIndex !== index || 'active' }}">
-                {{ item.title }}
-            </view>         
-        </view>
-        </scroll-view>
         <view class="video-list-area">
             <view class="section" wx:for="{{ videoTree }}" wx:key="index" >
                 <view class="video-list-title">
-                    {{ index }}
+                    {{ categories[index].title }}
                 </view>
 
                 <view class="video-list">
-                    <view wx:for="{{ item }}" wx:for-item="video" class="video-box">
+                    <view wx:for="{{ item }}" wx:for-item="video" class="video-box" 
+                    bindtap="play" data-video="{{video}}"
+                    >
                         <image class="cover" src="{{ video.cover }}"></image>
                         <view class="video-title">{{ video.title }}</view>
                     </view>

@@ -14,7 +14,6 @@ App({
 
     initCurrentLocation();
     initProvincesAndCities();
-
     getCurrentLocation();
   }
 })

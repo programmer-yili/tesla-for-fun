@@ -6,57 +6,17 @@ Page({
      */
     data: {
         categoryAreaWidth: '',
-        uri: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400',
-        title: '视频标题',
+        uri: '',
+        title: '',
         currentCarModel: '',
-        categories: ['后视镜', '灯光', '轮胎', '后视镜', '灯光', '轮胎', '后视镜', '灯光', '轮胎'],
-        currentSubCategoryIndex: 0,
-        videoList: [{
-            id: 7,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 1
-        },
-        {
-            id: 4,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 2
-        },
-        {
-            id: 6,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 1
-        },
-        {
-            id: 5,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 2
-        },
-
-        {
-            id: 3,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 2
-        }, {
-            id: 2,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 2
-        }, {
-            id: 1,
-            title: '视频标题2',
-            cover: '../../images/tesla.png',
-            subCategoryId: 3
-        }
-        ],
+        categories: [],
+        currentSubCategoryIndex: '',
+        videoList: [],
         videoTree: {},
         showCarModelSelection: false,
         actions: [],
-        allCategories: []
+        allCategories: [],
+        categoryDisplay: false,
     },
 
     /**
@@ -65,12 +25,7 @@ Page({
     onLoad: function (options) {
         this.db = wx.cloud.database()
 
-        let videoTree = {}
-        this.data.videoList.forEach(item=>{
-            const key = `sub-category-${item.subCategoryId}`
-            videoTree.hasOwnProperty(key) ? videoTree[key].push(item) : videoTree[key] = [item]
-        })
-        this.setData({videoTree})
+
 
         // 车型数据
         
@@ -83,10 +38,48 @@ Page({
                    this.setData({carModels, allCategories, videoList})
                    this._initActions();
                    this._changeCarModel()
+                   this._buildVideoTree()
+                   this._buildCategoriesDisplay()
                })
            })
         })
 
+    },
+
+    _buildCategoriesDisplay() {
+
+    },
+    _buildVideoTree(index = 0) {
+        let videoTree = {}
+        let categories = {}
+        const currenModel = this.data.carModels[index]
+        let video = null
+        this.data.videoList.forEach(item=>{
+            if(item['car_model'] === currenModel._id) {
+
+             if (!video) {
+                 video = item
+             }
+
+            const key = `sub-category-${item.category}`
+            if (videoTree.hasOwnProperty(key)) {
+                videoTree[key].push(item)
+
+            } else {
+                videoTree[key] = [item]
+                categories[key] = this.data.allCategories.filter(result=> {
+                    return result._id === item.category
+                })[0]
+            }
+        }
+        })
+
+        
+
+        const categoryDisplay = Object.keys(categories).length > 1
+        this.setData({videoTree,categories, categoryDisplay, title: video.title, 
+            uri: video.media_uri
+        })
     },
     _initActions() {
         let actions = []
@@ -103,13 +96,12 @@ Page({
         let categories = []
         !currentObject.categories || (categories=currentObject.categories)
 
-        console.log(categories)
 
         categories = this.data.allCategories.filter(item=>{
             return categories.includes(item._id)
         })
 
-        this.setData({currentCarModel, categories})
+        this.setData({currentCarModel})
     },
 
     onCarModelTap() {
@@ -143,6 +135,13 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
+    play(e) {
+        const {video} = e.currentTarget.dataset
+        this.setData({
+            uri: video.media_uri,
+            title: video.title
+        })
+    },
     onShow: function () {
 
     },
@@ -157,7 +156,9 @@ Page({
         const index = this.data.carModels.findIndex(item=>{
             return item.title === e.detail.name
         })
+        
         this._changeCarModel(index)
+        this._buildVideoTree(index)
     },
 
     /**
