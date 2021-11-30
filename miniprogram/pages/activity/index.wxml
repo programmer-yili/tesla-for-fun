@@ -2,25 +2,25 @@
   <view class="header">
     <view class="location-box">
       <image class="icon" src="../../images/location_search.png" />
-    <view class="location">北京</view>
-    <view class="switch-location">切换</view>
+    <view class="location">{{ currentCity }}</view>
+    <view class="switch-location" bindtap="onTapSwitchLocation">切换</view>
     </view>
   </view>
-  <view class="swiper">
+  <view class="swiper" wx:if="{{ recommendActivities.length }}">
     <swiper bindchange="onSwiperChange">
-      <swiper-item wx:for="{{ list }}" wx:key="index">
+      <swiper-item wx:for="{{ recommendActivities }}" wx:key="index">
         <view class="item-box">
-          <image class="cover" mode="aspectFill" src="{{ item }}">
+          <image class="cover" mode="aspectFill" src="{{ item.cover }}">
           </image>
           <view class="meta">
-            <view class="title">T-Life 北京车友会sdfdsfssdfsdfsdafsddfsdfds</view>
-            <view class="subtitle">欢迎你参加我们周年活动</view>
+            <view class="title">{{ item.title }}</view>
+            <view class="subtitle">{{ item.subtitle }}</view>
           </view>
         </view>
       </swiper-item>
     </swiper>
     <view class="dots">
-      <view class="dot {{ current !== index || 'active'}}" wx:for="{{list}}" wx:key="index"></view>
+      <view class="dot {{ current !== index || 'active'}}" wx:for="{{recommendActivities}}" wx:key="index"></view>
     </view>
   </view>
 
@@ -29,38 +29,17 @@
       最新活动
     </view>
 
-    <view class="activity-item">
+    <view class="activity-item" wx:for="{{ activities }}" wx:key="index">
       <view class="title">
-      Tday 活动dfdasfsdfsdfasdf
+      {{ item.title }}
       </view>
       <view class="icon-bar">车主专属</view>
       <view class="date-area">
-        <view class="date">11月1日 10:00 - 11月3日 10:00</view>
-        <view class="status-tag signed">已报名</view>
+        <view class="date">{{ item.start_time }} - 11月3日 10:00</view>
+        <view wx:if="{{ item.status === 'signing-up' }}" class="status-tag signing-up">报名中</view>
+        <view wx:if="{{ item.status === 'signing-end' }}" class="status-tag signing-end">报名结束</view>
       </view>
-      <view class="address">杭州·奥体中心</view>
-    </view>
-    <view class="activity-item">
-      <view class="title">
-      Tday 活动
-      </view>
-      <view class="icon-bar">车主专属</view>
-      <view class="date-area">
-        <view class="date">11月1日 10:00 - 11月3日 10:00</view>
-        <view class="status-tag signing-up">报名中</view>
-      </view>
-      <view class="address">杭州·奥体中心</view>
-    </view>
-    <view class="activity-item">
-      <view class="title">
-      Tday 活动
-      </view>
-      <view class="icon-bar">车主专属</view>
-      <view class="date-area">
-        <view class="date">11月1日 10:00 - 11月3日 10:00</view>
-        <view class="status-tag signing-end">报名结束</view>
-      </view>
-      <view class="address">杭州·奥体中心</view>
+      <view class="address">{{ item.address }}</view>
     </view>
   </view>
 </view>

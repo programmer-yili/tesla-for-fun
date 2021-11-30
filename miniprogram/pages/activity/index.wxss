@@ -41,6 +41,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 80rpx;
 }
 swiper {
   width: 100%;
@@ -104,20 +105,20 @@ swiper-item {
 }
 
 .dots .dot {
-  width: 20rpx;
+  width: 10rpx;
   height: 1rpx;
   background-color: #e1e1e1;
+  transition: all 1s;
+  margin-left: 10rpx
 }
 
 .dots .dot.active {
-  width: 40rpx;
-  height: 1rpx;
+  width: 20rpx;
   background-color: #000;
-  transition: width 1s;
+  transition: all 1s;
 }
 
 .list {
-  margin-top: 80rpx;
 }
 
 .list .list-title {
