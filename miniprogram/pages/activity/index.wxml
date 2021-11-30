@@ -1,2 +1,66 @@
-<!--pages/activity/index.wxml-->
-<text>pages/activity/index.wxml</text>
+<view class="page">
+  <view class="header">
+    <view class="location-box">
+      <image class="icon" src="../../images/location_search.png" />
+    <view class="location">北京</view>
+    <view class="switch-location">切换</view>
+    </view>
+  </view>
+  <view class="swiper">
+    <swiper bindchange="onSwiperChange">
+      <swiper-item wx:for="{{ list }}" wx:key="index">
+        <view class="item-box">
+          <image class="cover" mode="aspectFill" src="{{ item }}">
+          </image>
+          <view class="meta">
+            <view class="title">T-Life 北京车友会sdfdsfssdfsdfsdafsddfsdfds</view>
+            <view class="subtitle">欢迎你参加我们周年活动</view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+    <view class="dots">
+      <view class="dot {{ current !== index || 'active'}}" wx:for="{{list}}" wx:key="index"></view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="list-title">
+      最新活动
+    </view>
+
+    <view class="activity-item">
+      <view class="title">
+      Tday 活动dfdasfsdfsdfasdf
+      </view>
+      <view class="icon-bar">车主专属</view>
+      <view class="date-area">
+        <view class="date">11月1日 10:00 - 11月3日 10:00</view>
+        <view class="status-tag signed">已报名</view>
+      </view>
+      <view class="address">杭州·奥体中心</view>
+    </view>
+    <view class="activity-item">
+      <view class="title">
+      Tday 活动
+      </view>
+      <view class="icon-bar">车主专属</view>
+      <view class="date-area">
+        <view class="date">11月1日 10:00 - 11月3日 10:00</view>
+        <view class="status-tag signing-up">报名中</view>
+      </view>
+      <view class="address">杭州·奥体中心</view>
+    </view>
+    <view class="activity-item">
+      <view class="title">
+      Tday 活动
+      </view>
+      <view class="icon-bar">车主专属</view>
+      <view class="date-area">
+        <view class="date">11月1日 10:00 - 11月3日 10:00</view>
+        <view class="status-tag signing-end">报名结束</view>
+      </view>
+      <view class="address">杭州·奥体中心</view>
+    </view>
+  </view>
+</view>

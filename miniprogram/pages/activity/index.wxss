@@ -1,1 +1,188 @@
 /* pages/activity/index.wxss */
+.page {
+  padding: 0 40rpx;
+}
+.header {
+  width: 100vw;
+  height: 134rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.header .location-box {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.header .location-box  .icon {
+  width: 27rpx;
+  height: 34rpx;
+}
+
+.header .location-box  .location {
+  margin-left: 12rpx;
+  font-size: 30rpx;
+}
+
+.header .location-box  .switch-location {
+  margin-left: 12rpx;
+  font-size: 20rpx;
+  color: #515161;
+  text-decoration: underline;
+}
+
+.swiper {
+  width: 100%;
+  height: 454rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+swiper {
+  width: 100%;
+  height: 414rpx;
+}
+
+swiper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-box {
+  width: 659rpx;
+  height: 414rpx;
+  border-radius: 14rpx;
+  background-color: #fff;
+  box-shadow: var(--dropdown-menu-box-shadow,0 2px 12px hsla(210,1%,40%,.12));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-box .cover {
+  width: 100%;
+  height: 288rpx;
+}
+
+.item-box .meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-box .meta .title {
+  font-size: 34rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
+}
+
+.item-box .meta .subtitle {
+  font-size: 20rpx;
+  color: #9e9e9f;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
+  text-align: center;
+}
+
+.swiper .dots {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dots .dot {
+  width: 20rpx;
+  height: 1rpx;
+  background-color: #e1e1e1;
+}
+
+.dots .dot.active {
+  width: 40rpx;
+  height: 1rpx;
+  background-color: #000;
+  transition: width 1s;
+}
+
+.list {
+  margin-top: 80rpx;
+}
+
+.list .list-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+
+.list .activity-item {
+  margin-bottom: 54rpx;
+}
+
+.list .activity-item .title {
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-bottom: 18rpx;
+}
+
+.list .activity-item .icon-bar {
+  width: 100rpx;
+  height: 25rpx;
+  font-size: 15rpx;
+  color: #fff;
+  background-color: #000;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14rpx;
+}
+
+.date-area {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.date-area .date {
+  color: #808081;
+  font-size: 22rpx;
+  margin-right: 16rpx;
+}
+
+.date-area .status-tag {
+  padding: 5rpx;
+  font-size: 16rpx;
+
+}
+
+.date-area .status-tag.signing-up {
+  background-color: #000;
+  color: #fff;
+}
+
+.date-area .status-tag.signing-end {
+  background-color: #f5f5f6;
+  color: #b1b1b1;
+}
+
+.date-area .status-tag.signed {
+  background-color: green;
+  color: #fff;
+}
+
+.activity-item .address {
+  color: #a5a5a6;
+  font-size: 20rpx;
+}

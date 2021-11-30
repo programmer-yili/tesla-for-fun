@@ -5,7 +5,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        list: [
+            '../../images/tesla.jpeg',
+            '../../images/tesla.jpeg',
+            '../../images/tesla.jpeg'
+        ],
+        current: 0
     },
 
     /**
@@ -34,6 +39,11 @@ Page({
      */
     onHide: function () {
 
+    },
+
+    onSwiperChange(e) {
+        const {current} = e.detail
+        this.setData({current})
     },
 
     /**
