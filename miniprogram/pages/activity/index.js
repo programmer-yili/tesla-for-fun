@@ -1,6 +1,8 @@
 // pages/activity/index.js
 const citySelector = requirePlugin('citySelector');
 import {getCurrentLocation } from '../../utils/location.js'
+
+import {formatDate} from '../../utils/time.js'
 Page({
 
     /**
@@ -15,7 +17,12 @@ Page({
         current: 0,
         currentCity: '',
         activities: [],
-        recommendActivities: []
+        recommendActivities: [],
+        loading: false,
+        count: 0,
+        limit: 3,
+        total: 0,
+        noMore: false
     },
 
     /**
@@ -31,20 +38,31 @@ Page({
     },
 
     _loadCurrentCityLatestActivities() {
-        this.db.collection('activity').orderBy('created_time', 'desc').where({city: this.data.currentCity}).get().then(res=>{
-            let activities = []
+        console.log(this.data.count)
+        if (this.data.count !== 0 && this.data.count === this.data.total) {
+            this.setData({
+                noMore: true
+            })
+            return;
+        }
+        this.setData({
+            loading: true
+        })
+        this.db.collection('activity').orderBy('created_time', 'desc')
+        .skip(this.data.count)
+        .limit(this.data.limit).where({city: this.data.currentCity}).get().then(res=>{
+            let activities = this.data.activities
             res.data.forEach((item)=>{
-                console.log(item)
                 item.status = this._getActivityStatus(item)
-                item['start_time'] = this.formatDate(item['start_time'])
-                item['end_time'] = this.formatDate(item['end_time'])
-            
+                item['start_time'] = formatDate(item['start_time'])
+                item['end_time'] = formatDate(item['end_time'])
                 activities.push(item)
             })
-
+            const count = activities.length
             this.setData({
-                activities
+                activities, loading: false, count
             })
+            
         })
     },
 
@@ -53,19 +71,21 @@ Page({
         return (activity['end_time'] <= now  && activity['start_time'] >= now)? 'signing-up' : 'signing-end'
     },
 
-    formatDate(date) {
-        console.log(date)
-        console.log(date.getMonth())
-        return `${date.getMonth()}月${date.getDate()}日 ${date.getHours()}:${date.getMinutes()}`
-   },
     _loadCurrentCityRecommendActivities() {
         this.db.collection('activity').orderBy('created_time', 'desc').where({city: this.data.currentCity, recommend: true}).get().then(res=>{
-            console.log(res)
             this.setData({
                 recommendActivities: res.data
             })
         })
     },
+
+    goToDetail(e) {
+        const { id } = e.currentTarget.dataset
+        wx.navigateTo({
+          url: `/pages/activity/detail?id=${id}`,
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -85,8 +105,17 @@ Page({
             })
         }
 
+        this._loadCurrentCityActivitiesCount()
         this._loadCurrentCityLatestActivities()
         this._loadCurrentCityRecommendActivities()
+    },
+
+    _loadCurrentCityActivitiesCount() {
+        this.db.collection('activity').where({city: this.data.currentCity}).count().then(res=>{
+            this.setData({
+                total: res.total
+            })
+        })
     },
 
     /**
@@ -127,7 +156,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        this._loadCurrentCityLatestActivities()
     },
 
     /**

@@ -9,7 +9,7 @@
   <view class="swiper" wx:if="{{ recommendActivities.length }}">
     <swiper bindchange="onSwiperChange">
       <swiper-item wx:for="{{ recommendActivities }}" wx:key="index">
-        <view class="item-box">
+        <view class="item-box" bindtap="goToDetail" data-id="{{ item._id }}">
           <image class="cover" mode="aspectFill" src="{{ item.cover }}">
           </image>
           <view class="meta">
@@ -29,17 +29,22 @@
       最新活动
     </view>
 
-    <view class="activity-item" wx:for="{{ activities }}" wx:key="index">
+    <view  class="activity-item" wx:for="{{ activities }}" wx:key="index" bindtap="goToDetail" data-id="{{ item._id }}">
       <view class="title">
       {{ item.title }}
       </view>
       <view class="icon-bar">车主专属</view>
       <view class="date-area">
-        <view class="date">{{ item.start_time }} - 11月3日 10:00</view>
+        <view class="date">{{ item.start_time }} - {{ item.end_time }}</view>
         <view wx:if="{{ item.status === 'signing-up' }}" class="status-tag signing-up">报名中</view>
         <view wx:if="{{ item.status === 'signing-end' }}" class="status-tag signing-end">报名结束</view>
       </view>
       <view class="address">{{ item.address }}</view>
     </view>
+
+    <van-loading wx:if="{{ loading }}" custom-class="loading-text" size="24px" vertical>加载中...</van-loading>
+
+    <view wx:if="{{ noMore }}" class="no-more">没有更多了</view>
+
   </view>
 </view>

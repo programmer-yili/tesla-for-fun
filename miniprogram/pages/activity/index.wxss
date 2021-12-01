@@ -187,3 +187,17 @@ swiper-item {
   color: #a5a5a6;
   font-size: 20rpx;
 }
+
+
+.loading-text {
+  width: 100%;
+}
+
+.no-more {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  text-align: center;
+  color: #a5a5a6;
+  font-size: 20rpx;
+}
