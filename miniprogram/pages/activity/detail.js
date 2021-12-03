@@ -39,6 +39,12 @@ Page({
     const now = new Date()
     return (activity['end_time'] <= now  && activity['start_time'] >= now)? 'signing-up' : 'signing-end'
 },
+  apply(e) {
+    const { id } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/activity/apply?id=${id}`,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

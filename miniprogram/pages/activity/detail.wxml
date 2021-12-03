@@ -23,7 +23,7 @@
       报名时间: {{ activity['start_time'] }} - {{ activity['end_time'] }} 
     </view>
 
-    <view class="activity-apply-btn" bindtap="onSubmit">立即报名</view>
+    <view class="activity-apply-btn" bindtap="apply" data-id="{{ activity._id }}">立即报名</view>
 
   </view>
 </view>

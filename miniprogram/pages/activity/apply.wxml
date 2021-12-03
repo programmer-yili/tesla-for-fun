@@ -1,0 +1,22 @@
+<!--pages/activity/apply.wxml-->
+<view class="page">
+  <tesla-field class="tesla-field" model:value="{{ email }}" label="邮箱" placeholder="邮箱" required rules="{{ [{type: 'email'}] }}"/>
+
+    <van-row gutter="20">
+  <van-col span="12">
+    <tesla-field class="tesla-field" model:value="{{ lastName }}" label="姓氏" placeholder="姓氏" required/>
+ </van-col>
+  <van-col span="12">
+    <tesla-field class="tesla-field" model:value="{{ firstName }}" label="名字" placeholder="名字" required/>
+   </van-col>
+</van-row>
+<tesla-field class="tesla-field" model:value="{{ mobile }}" label="手机号码" placeholder="手机号码" required rules="{{ [{type: 'phone'}] }}"/>
+
+  <tesla-field label="备注" placeholder="备注"  model:value="{{ remark }}"/>
+
+  <van-button 
+  custom-style="margin-top: 200rpx"
+   type="info" block round bindtap="apply">确认报名</van-button>
+
+
+</view>

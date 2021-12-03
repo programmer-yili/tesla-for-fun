@@ -20,7 +20,7 @@ Page({
         recommendActivities: [],
         loading: false,
         count: 0,
-        limit: 3,
+        limit: 5,
         total: 0,
         noMore: false
     },

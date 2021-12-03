@@ -1,0 +1,11 @@
+/* pages/activity/apply.wxss */
+
+.page {
+  box-sizing: border-box;
+  padding: 40rpx;
+}
+
+.field {
+  border-radius: 25rpx;
+  margin-bottom: 30rpx
+}

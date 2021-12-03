@@ -119,6 +119,12 @@
           "pathName": "pages/activity/detail",
           "query": "id=5026485b61a6344100ee08a427adb603",
           "scene": null
+        },
+        {
+          "name": "活动报名",
+          "pathName": "pages/activity/apply",
+          "query": "id=5026485b61a6344100ee08a427adb603",
+          "scene": null
         }
       ]
     }
