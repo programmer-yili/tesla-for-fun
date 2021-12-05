@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="header">
+    <van-tabs color="#11151c" active="{{ active }}" bind:change="onChange">
+      <van-tab title="推荐"></van-tab>
+      <van-tab title="支持"></van-tab>
+      </van-tabs>
+  </view>
+
+  <view class="swiper">
+    <swiper bindchange="onSwiperChange">
+      <swiper-item wx:for="{{ swiperList }}" wx:key="index">
+        <image mode="aspectFill" class="image" src="{{ item.cover }}"></image>
+      </swiper-item>
+    </swiper>
+    <view class="dots">
+      <view class="dot {{ index !== swiperIndex || 'active' }} " wx:for="{{ swiperList }}" wx:key="index"></view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="news-box">
+      <view class="meta">
+        <view class="title">特斯拉迭代</view>
+        <view class="date">2021.12.5</view>
+      </view>
+      <image class="cover" src="../../images/tesla.jpeg"></image>
+    </view>
+    <view class="news-box">
+      <view class="meta">
+        <view class="title">特斯拉迭代</view>
+        <view class="date">2021.12.5</view>
+      </view>
+      <image class="cover" src="../../images/tesla.jpeg"></image>
+    </view>
+    <view class="news-box">
+      <view class="meta">
+        <view class="title">特斯拉迭代</view>
+        <view class="date">2021.12.5</view>
+      </view>
+      <image class="cover" src="../../images/tesla.jpeg"></image>
+    </view>
+  </view>
+</view>

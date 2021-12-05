@@ -101,3 +101,7 @@
   margin-bottom: 80rpx;
 
 }
+
+.activity-apply-btn.disable {
+  background-color: #999999;
+}

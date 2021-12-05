@@ -29,12 +29,13 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.db = wx.cloud.database()
+
         const { city }  = getCurrentLocation()
         this.setData({
             currentCity: city
         })
 
-        this.db = wx.cloud.database()
     },
 
     _loadCurrentCityLatestActivities() {
@@ -68,7 +69,7 @@ Page({
 
     _getActivityStatus(activity) {
         const now = new Date()
-        return (activity['end_time'] <= now  && activity['start_time'] >= now)? 'signing-up' : 'signing-end'
+       return (activity['end_time'] <= now  && activity['start_time'] >= now)? 'signing-up' : 'signing-end'
     },
 
     _loadCurrentCityRecommendActivities() {

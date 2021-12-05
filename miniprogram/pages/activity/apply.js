@@ -21,6 +21,14 @@ Page({
     this._loadActivity(options.id)
   },
 
+  onShow() {
+    // this.db.collection('activity_apply_list').where({
+    //   activity_id: this.data.activity._id
+    // }).get().then(res=>{
+    //   console.log(res)
+    // })
+  },
+
   _loadActivity(activityId) {
     this.db.collection('activity').where({_id: activityId}).get().then(res=>{
       this.setData({
@@ -47,6 +55,12 @@ apply() {
       data
     }).then(res=>{
       wx.hideLoading();
+      wx.showToast({
+        title: '报名提交成功！',
+      })
+      wx.navigateBack({
+        delta: 1,
+      })
     })
   }
 },
@@ -70,12 +84,7 @@ _isFormReady() {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
