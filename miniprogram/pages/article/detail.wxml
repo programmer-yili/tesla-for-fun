@@ -1,0 +1,13 @@
+<view class="page">
+<image class="cover" mode="aspectFill" src="{{ article.cover }}"></image>
+<view class="page-content">
+
+<view class="title">{{ article.title }}</view>
+<view class="meta">
+  <view class="date">{{ article.create_time }}</view>
+  <view class="views">阅览：{{ article.hit_num }}</view>
+</view>
+
+<rich-text nodes="{{ article.content }}"></rich-text>
+</view>
+</view>

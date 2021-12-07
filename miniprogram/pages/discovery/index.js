@@ -6,27 +6,79 @@ Page({
    */
   data: {
     swiperIndex: 0,
-    swiperList: [
-      {cover: '../../images/tesla.jpeg'},
-      {cover: '../../images/tesla.jpeg'},
-      {cover: '../../images/tesla.jpeg'}
+    swiperList: [],
+    recommendPageShow: false,
+    pageIndex: 0,
+    pages: ['推荐', '支持'],
+    articleList: [],
+    recommendArticleList: []
+  },
 
-    ]
+  navigatePage(e) {
+    const { targetId, type } = e.currentTarget.dataset
+    type === 'article' ? wx.navigateTo({
+      url: `/pages/article/detail?id=${targetId}`,
+    }) : wx.navigateTo({
+      url: `/pages/article/channel?id=${targetId}`,
+    })
+  },
+  onPageChange(e) {
+    this.setData({
+      pageIndex: e.detail.index
+    })
+    this._loadData()
   },
 
   onSwiperChange(e) {
     this.setData({
       swiperIndex: e.detail.current
     })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.db = wx.cloud.database()
+    this._loadData()
   },
 
+  _loadData() {
+    this.data.pageIndex === 0 ? this._loadArticlePageData() : this._loadChannelPageData()
+  },
+
+  _loadArticlePageData() {
+    this.setData({
+      channelList: []
+    })
+    this.db.collection('article').orderBy('create_time', 'desc').get().then(res=>{
+      this.setData({
+        articleList: res.data
+      })
+    })
+    this.db.collection('article').orderBy('create_time', 'desc').where({recommend: true}).get().then(res=>{
+      this.setData({
+        swiperList: res.data
+      })
+    })
+  },
+
+  _loadChannelPageData() {
+    this.setData({
+      articleList: []
+    })
+    this.db.collection('channel').orderBy('created_time', 'desc').get().then(res=>{
+      this.setData({
+        channelList: res.data
+      })
+    })
+    this.db.collection('channel').orderBy('created_time', 'desc').where({recommend: true}).get().then(res=>{
+      this.setData({
+        swiperList: res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

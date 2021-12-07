@@ -131,6 +131,12 @@
           "pathName": "pages/discovery/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "文章详情",
+          "pathName": "pages/article/detail",
+          "query": "id=c462c81061ae148b00d36709255b4fb1",
+          "scene": null
         }
       ]
     }
