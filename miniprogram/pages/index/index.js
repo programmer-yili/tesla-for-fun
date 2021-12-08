@@ -55,6 +55,12 @@ Page({
 
     },
 
+    gotoCleanEnergy() {
+        wx.navigateTo({
+          url: '/pages/article/detail?id=287a53aa61af65c300edb61552f1c7ea',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */

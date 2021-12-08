@@ -39,7 +39,6 @@ Page({
     },
 
     _loadCurrentCityLatestActivities() {
-        console.log(this.data.count)
         if (this.data.count !== 0 && this.data.count === this.data.total) {
             this.setData({
                 noMore: true
@@ -54,23 +53,50 @@ Page({
         .limit(this.data.limit).where({city: this.data.currentCity}).get().then(res=>{
             let activities = this.data.activities
             res.data.forEach((item)=>{
-                item.status = this._getActivityStatus(item)
-                item['start_time'] = formatDate(item['start_time'])
-                item['end_time'] = formatDate(item['end_time'])
+                // item.status = this._getActivityStatus(item)
+                item['formated_start_time'] = formatDate(item['start_time'])
+                item['formated_end_time'] = formatDate(item['end_time'])
                 activities.push(item)
             })
             const count = activities.length
             this.setData({
                 activities, loading: false, count
             })
-            
+            this._updateActivityStatus()
         })
     },
 
-    _getActivityStatus(activity) {
-        const now = new Date()
-       return (activity['end_time'] <= now  && activity['start_time'] >= now)? 'signing-up' : 'signing-end'
+    _updateActivityStatus() {
+        this.data.activities.forEach((item, index)=>{
+            this._setActivityStatus(item, index)
+        })
     },
+
+    _setActivityStatus(item, index) {
+        const now = new Date()
+        console.log(now)
+        console.log(item['end_time'])
+
+
+        let status = (item['end_time'] >= now  && item['start_time'] <= now)? 'signing-up' : 'signing-end'
+
+        this.db.collection('activity_apply_list').where({
+            activity_id: item._id 
+        }).get().then(res=>{
+
+            if(res.data.length !== 0) {
+                status = 'signed'
+            }
+
+            const currentKey = `activities[${index}].status`
+            this.setData({
+                [currentKey]: status
+            })
+        })
+
+
+    },
+
 
     _loadCurrentCityRecommendActivities() {
         this.db.collection('activity').orderBy('created_time', 'desc').where({city: this.data.currentCity, recommend: true}).get().then(res=>{

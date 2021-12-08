@@ -6,7 +6,7 @@
     </view>
     <view class="icon-bar">车主专属</view>
     <view class="date-area">
-        <view class="date">{{ activity.start_time }} - {{ activity.end_time }}</view>
+        <view class="date">{{ activity.formated_start_time }} - {{ activity.formated_end_time }}</view>
         <view wx:if="{{ activity.status === 'signing-up' }}" class="status-tag signing-up">报名中</view>
         <view wx:if="{{ activity.status === 'signing-end' }}" class="status-tag signing-end">报名结束</view>
         <view wx:if="{{ activity.status === 'signed' }}" class="status-tag signed">已报名</view>
@@ -21,7 +21,7 @@
       <rich-text wx:if="{{activity.description}}" class="description-content" nodes="{{activity.description}}"></rich-text>
 
       <view class="apply-timerange">
-      报名时间: {{ activity['start_time'] }} - {{ activity['end_time'] }} 
+      报名时间: {{ activity['formated_start_time'] }} - {{ activity['formated_end_time'] }} 
     </view>
 
     <view wx:if="{{ !activityCurrentUserApplication }}" class="activity-apply-btn" bindtap="apply" data-id="{{ activity._id }}">立即报名</view>

@@ -1,18 +1,44 @@
 // pages/article/channel.js
+import { formatDate } from '../../utils/time.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    channel: null,
+    articleList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.db = wx.cloud.database()
+    this.db.collection('channel').doc(options.id).get().then(res=>{
+      let channel = res.data
+      this.db.collection('article').where({
+        channel: channel._id
+      }).get().then(res2=>{
+        let articleList = res2.data
 
+        articleList.forEach((item,index) => {
+          articleList[index].create_time = formatDate(new Date(item.create_time))
+        })
+
+        this.setData({
+          channel, articleList
+        })
+      })
+    })
+  },
+
+  navigatePage(e) {
+    const { targetId } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/article/detail?id=${targetId}`,
+    })
   },
 
   /**

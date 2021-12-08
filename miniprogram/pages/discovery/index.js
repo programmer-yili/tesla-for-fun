@@ -1,4 +1,6 @@
 // pages/discovery/index.js
+import { formatDate } from '../../utils/time.js'
+
 Page({
 
   /**
@@ -53,8 +55,13 @@ Page({
       channelList: []
     })
     this.db.collection('article').orderBy('create_time', 'desc').get().then(res=>{
+      let articleList = res.data
+
+      articleList.forEach((item,index) => {
+        articleList[index].create_time = formatDate(new Date(item.create_time))
+      })
       this.setData({
-        articleList: res.data
+        articleList
       })
     })
     this.db.collection('article').orderBy('create_time', 'desc').where({recommend: true}).get().then(res=>{

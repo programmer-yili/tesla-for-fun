@@ -20,7 +20,7 @@
     <view class="news-box" wx:for="{{ articleList }}" wx:key="index" bindtap="navigatePage" data-type="article" data-target-id="{{ item._id }}" >
       <view class="meta">
         <view class="title">{{ item.title }}</view>
-        <view class="date">{{  }}</view>
+        <view class="date">{{ item.create_time }}</view>
       </view>
       <image class="cover" src="{{ item.cover }}"></image>
     </view>

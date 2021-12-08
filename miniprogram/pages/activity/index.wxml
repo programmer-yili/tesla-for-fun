@@ -35,9 +35,10 @@
       </view>
       <view class="icon-bar">车主专属</view>
       <view class="date-area">
-        <view class="date">{{ item.start_time }} - {{ item.end_time }}</view>
+        <view class="date">{{ item.formated_start_time }} - {{ item.formated_end_time }}</view>
         <view wx:if="{{ item.status === 'signing-up' }}" class="status-tag signing-up">报名中</view>
         <view wx:if="{{ item.status === 'signing-end' }}" class="status-tag signing-end">报名结束</view>
+        <view wx:if="{{ item.status === 'signed' }}" class="status-tag signed">已报名</view>
       </view>
       <view class="address">{{ item.address }}</view>
     </view>
