@@ -143,6 +143,12 @@
           "pathName": "pages/article/channel",
           "query": "id=0448022461ae144900d7669b12ade68f",
           "scene": null
+        },
+        {
+          "name": "预约试驾",
+          "pathName": "pages/test-drive/index",
+          "query": "id=fa24ce1a61796c0202b5d804400ec91d",
+          "scene": null
         }
       ]
     }

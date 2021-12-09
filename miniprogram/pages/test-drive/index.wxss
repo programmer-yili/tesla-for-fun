@@ -73,3 +73,10 @@
     height: 80rpx;
     border-radius: 80rpx;
 }
+
+.get-phone-btn {
+    width: 170rpx!important;
+    font-size: 24rpx;
+    padding: 8rpx 10rpx;
+    background-color: #000!important;
+}
