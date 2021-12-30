@@ -1,0 +1,115 @@
+/* pages/discovery/index.wxss */
+.page {
+  padding: 0 42rpx;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabs {
+  width: 220rpx;
+}
+
+.header {
+  margin-bottom: 22rpx;
+  align-self: start;
+}
+
+
+.swiper {
+  width: 660rpx;
+  height: 258rpx;
+  position: relative;
+  margin-bottom: 58rpx;
+}
+
+.swiper .image {
+  border-radius: 6rpx;
+}
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper .dots {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 22rpx;
+  right: 6rpx
+}
+
+.swiper .dots .dot {
+  width: 44rpx;
+  height: 4rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper .dots .dot.active {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.article-list .news-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 54rpx;
+}
+
+.article-list .news-box .cover {
+  width: 182rpx;
+  height: 128rpx;
+}
+
+.article-list .news-box .title {
+  margin-top: 7rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-bottom: 24rpx;
+}
+
+.article-list .news-box .date {
+  font-size: 16rpx;
+  color: #a5a5a5;
+}
+
+
+.channel-list {
+  width: 100%;
+}
+
+.channel-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.channel-box .cover {
+  width: 312rpx;
+  height: 214rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.channel-box .title {
+  font-size: 26rpx;
+  font-weight: bold;
+}

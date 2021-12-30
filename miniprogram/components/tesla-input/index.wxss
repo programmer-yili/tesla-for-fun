@@ -19,7 +19,7 @@
     font-weight: bold;
     color: #000;
     border-radius: 50rpx;
-    border: #fff solid 2rpx;
+    border: #000 solid 2rpx;
 }
 
 .input-item .error {
@@ -45,4 +45,12 @@
     font-size: 20rpx;
     bottom: -35rpx;
     color: #848484;
+}
+
+.slot-right-item {
+    position: absolute;
+    right: 25rpx;
+    bottom: 25rpx;
+    overflow: hidden;
+    z-index: 2;
 }

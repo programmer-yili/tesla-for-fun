@@ -1,114 +1,156 @@
 {
-    "setting": {},
-    "condition": {
-        "plugin": {
-            "list": []
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
         },
-        "game": {
-            "list": []
+        {
+          "name": "pages/getOpenId/index",
+          "pathName": "pages/getOpenId/index",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
+        {
+          "name": "pages/deployService/index",
+          "pathName": "pages/deployService/index",
+          "query": "",
+          "scene": null
         },
-        "miniprogram": {
-            "list": [
-                {
-                    "id": -1,
-                    "name": "db guide",
-                    "pathName": "pages/databaseGuide/databaseGuide",
-                    "query": ""
-                },
-                {
-                    "name": "pages/getOpenId/index",
-                    "pathName": "pages/getOpenId/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/deployService/index",
-                    "pathName": "pages/deployService/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/selectRecord/index",
-                    "pathName": "pages/selectRecord/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/sumRecordResult/index",
-                    "pathName": "pages/sumRecordResult/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/updateRecord/index",
-                    "pathName": "pages/updateRecord/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/updateRecordResult/index",
-                    "pathName": "pages/updateRecordResult/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/updateRecordSuccess/index",
-                    "pathName": "pages/updateRecordSuccess/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "产品详情页",
-                    "pathName": "pages/product/index",
-                    "query": "id=fa24ce1a61796c0202b5d804400ec91d",
-                    "scene": null
-                },
-                {
-                    "name": "预约页面",
-                    "pathName": "pages/test-drive/index",
-                    "query": "id=fa24ce1a61796c0202b5d804400ec91d",
-                    "scene": null
-                },
-                {
-                    "name": "预约页面",
-                    "pathName": "pages/test-drive/index",
-                    "query": "id=fa24ce1a61796c0202b5d804400ec91d",
-                    "scene": null
-                },
-                {
-                    "name": "月刊详情页",
-                    "pathName": "pages/magazine/index",
-                    "query": "id=18ed0968618697b303ba832d64f0d57f",
-                    "scene": null
-                },
-                {
-                    "name": "地图",
-                    "pathName": "pages/map/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "位置详情",
-                    "pathName": "pages/map/location",
-                    "query": "id=fa24ce1a61893bf704fcd24938e2aa9d",
-                    "scene": null
-                },
-                {
-                    "name": "贷款页面",
-                    "pathName": "pages/lenders-toolbox/index",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "新手视频",
-                    "pathName": "pages/video/index",
-                    "query": "",
-                    "scene": null
-                }
-            ]
+        {
+          "name": "pages/selectRecord/index",
+          "pathName": "pages/selectRecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sumRecordResult/index",
+          "pathName": "pages/sumRecordResult/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/updateRecord/index",
+          "pathName": "pages/updateRecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/updateRecordResult/index",
+          "pathName": "pages/updateRecordResult/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/updateRecordSuccess/index",
+          "pathName": "pages/updateRecordSuccess/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "产品详情页",
+          "pathName": "pages/product/index",
+          "query": "id=fa24ce1a61796c0202b5d804400ec91d",
+          "scene": null
+        },
+        {
+          "name": "预约页面",
+          "pathName": "pages/test-drive/index",
+          "query": "id=fa24ce1a61796c0202b5d804400ec91d",
+          "scene": null
+        },
+        {
+          "name": "预约页面",
+          "pathName": "pages/test-drive/index",
+          "query": "id=fa24ce1a61796c0202b5d804400ec91d",
+          "scene": null
+        },
+        {
+          "name": "月刊详情页",
+          "pathName": "pages/magazine/index",
+          "query": "id=18ed0968618697b303ba832d64f0d57f",
+          "scene": null
+        },
+        {
+          "name": "地图",
+          "pathName": "pages/map/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "位置详情",
+          "pathName": "pages/map/location",
+          "query": "id=fa24ce1a61893bf704fcd24938e2aa9d",
+          "scene": null
+        },
+        {
+          "name": "贷款页面",
+          "pathName": "pages/lenders-toolbox/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "新手视频",
+          "pathName": "pages/video/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动列表",
+          "pathName": "pages/activity/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动详情页",
+          "pathName": "pages/activity/detail",
+          "query": "id=5026485b61a6344100ee08a427adb603",
+          "scene": null
+        },
+        {
+          "name": "活动报名",
+          "pathName": "pages/activity/apply",
+          "query": "id=5026485b61a6344100ee08a427adb603",
+          "scene": null
+        },
+        {
+          "name": "pages/discovery/index",
+          "pathName": "pages/discovery/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "文章详情",
+          "pathName": "pages/article/detail",
+          "query": "id=c462c81061ae148b00d36709255b4fb1",
+          "scene": null
+        },
+        {
+          "name": "频道页",
+          "pathName": "pages/article/channel",
+          "query": "id=0448022461ae144900d7669b12ade68f",
+          "scene": null
+        },
+        {
+          "name": "预约试驾",
+          "pathName": "pages/test-drive/index",
+          "query": "id=fa24ce1a61796c0202b5d804400ec91d",
+          "scene": null
         }
+      ]
     }
+  }
 }

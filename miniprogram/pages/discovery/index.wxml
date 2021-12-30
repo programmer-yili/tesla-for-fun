@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="header">
+    <van-tabs color="#11151c" active="{{ active }}" bind:change="onPageChange">
+      <van-tab wx:for="{{ pages }}" wx:key="index" title="{{ item }}"></van-tab>
+      </van-tabs>
+  </view>
+
+  <view class="swiper" wx:if="{{ swiperList.length }}">
+    <swiper autoplay bindchange="onSwiperChange">
+      <swiper-item wx:for="{{ swiperList }}" wx:key="index">
+        <image mode="aspectFill" class="image" bindtap="navigatePage" data-type="{{ pageIndex === 0 ? 'article': 'channel' }}" data-target-id="{{ item._id }}" src="{{ item.cover }}"></image>
+      </swiper-item>
+    </swiper>
+    <view class="dots">
+      <view class="dot {{ index !== swiperIndex || 'active' }} " wx:for="{{ swiperList }}" wx:key="index"></view>
+    </view>
+  </view>
+
+  <view wx:if="{{ articleList.length }}" class="article-list">
+    <view class="news-box" wx:for="{{ articleList }}" wx:key="index" bindtap="navigatePage" data-type="article" data-target-id="{{ item._id }}" >
+      <view class="meta">
+        <view class="title">{{ item.title }}</view>
+        <view class="date">{{ item.create_time }}</view>
+      </view>
+      <image class="cover" src="{{ item.cover }}"></image>
+    </view>
+  </view>
+
+  <view wx:if="{{ channelList.length }}" class="channel-list">
+  <van-row gutter="20">
+    <van-col span="12" wx:for="{{ channelList }}" wx:key="index">
+      <view class="channel-box" bindtap="navigatePage" data-type="channel" data-target-id="{{ item._id }}">
+        <image class="cover" mode="aspectFill" src="{{ item.cover }}"></image>
+        <view class="title">{{ item.title }}</view>
+      </view>
+    </van-col>
+  </van-row>
+  </view>
+</view>

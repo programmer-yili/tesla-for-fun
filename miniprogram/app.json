@@ -8,7 +8,12 @@
     "pages/magazine/index",
     "pages/map/location",
     "pages/lenders-toolbox/index",
-    "pages/video/index"
+    "pages/video/index",
+    "pages/activity/detail",
+    "pages/activity/apply",
+    "pages/discovery/index",
+    "pages/article/detail",
+    "pages/article/channel"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -21,7 +26,12 @@
     "color": "#c3c3c3",
     "selectedColor": "#1b1b1b",
     "borderStyle": "white",
-    "list": [{
+    "list": [ {
+      "iconPath": "images/nav/discovery.png",
+      "selectedIconPath": "images/nav/discovery_select.png",
+      "pagePath": "pages/discovery/index",
+      "text": "发现"
+    },{
       "pagePath": "pages/index/index",
       "iconPath": "images/nav/car.png",
       "selectedIconPath": "images/nav/car_select.png",
@@ -43,6 +53,12 @@
   "permission": {
     "scope.userLocation": {
       "desc": "您的位置信息将用于我们的服务人员跟踪您的信息并提供更好的服务"
+    }
+  },
+  "plugins": {
+    "citySelector": {
+      "version": "1.0.1",
+      "provider": "wx63ffb7b7894e99ae"
     }
   }
 }

@@ -13,9 +13,13 @@
                     <tesla-input class="tesla-input" required label="名字" model:value="{{ firstName }}" />
                 </view>
             </view>
-            <tesla-input class="tesla-input" required rules="{{ [{ type: 'email' }] }}" label="电子邮件" model:value="{{ email }}" />
+            <tesla-input class="tesla-input" required rules="{{ [{ type: 'email' }] }}" label="电子邮件" model:value="{{ email }}">
 
-            <tesla-input class="tesla-input" rules="{{ [{type: 'phone'}] }}" required label="手机号码" model:value="{{ phone }}" />
+            </tesla-input>
+
+            <tesla-input class="tesla-input" rules="{{ [{type: 'phone'}] }}" required label="手机号码" model:value="{{ phone }}">
+                <button class="get-phone-btn" open-type="getPhoneNumber" slot="right-item" bindgetphonenumber="getPhoneNumber" type="primary">获取手机号码</button>
+            </tesla-input>
 
             <picker bindchange="bindProvinceChange" value="{{ currentProvinceIndex }}" range-key="fullname" range="{{provincesAndCitiesTree}}">
                 <tesla-input writable="{{false}}" required label="省份" value="{{ province }}" />

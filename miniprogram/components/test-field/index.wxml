@@ -1,0 +1,11 @@
+<van-field
+    custom-style="border-radius: 25rpx; margin-bottom: 30rpx"
+    placeholder="{{ placeholder }}"
+    required="{{ required }}"
+    model:value="{{ value }}"
+    error-message="{{ errorMessage }}"
+    error="{{error}}"
+    border="{{ false }}"
+    autosize="{{ autosize }}"
+    bind:input="onInput"
+/>

@@ -31,7 +31,7 @@
 
 
     <view class="icon-box-area">
-        <view class="icon-box">
+        <view class="icon-box" bindtap="gotoCleanEnergy">
             <image class="icon" src="../../images/ic_clean_engry_policy.svg"  mode="aspectFit" ></image>
             <view class="title">新能源政策</view>
         </view>

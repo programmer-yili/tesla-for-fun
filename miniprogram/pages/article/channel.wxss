@@ -1,0 +1,52 @@
+.header-cover {
+  height: 306rpx;
+  width: 100%;
+  margin-bottom: 84rpx;
+}
+
+.content {
+  padding: 0 50rpx;
+}
+
+.content .title {
+  font-size: 42rpx;
+  font-weight: bold;
+  margin-bottom: 28rpx;
+}
+
+.content .subtitle {
+  font-size: 20rpx;
+  color: #a5a5a5;
+  margin-bottom: 48rpx;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.article-list .news-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 54rpx;
+}
+
+.article-list .news-box .cover {
+  width: 182rpx;
+  height: 128rpx;
+}
+
+.article-list .news-box .title {
+  margin-top: 7rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-bottom: 24rpx;
+}
+
+.article-list .news-box .date {
+  font-size: 16rpx;
+  color: #a5a5a5;
+}

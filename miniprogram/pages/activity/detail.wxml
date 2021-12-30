@@ -1,0 +1,30 @@
+<view class="page">
+  <image class="cover" mode="aspectFill" src="{{ activity.cover }}"></image>
+  <view class="main">
+    <view class="title">
+      {{ activity.title }}
+    </view>
+    <view class="icon-bar">车主专属</view>
+    <view class="date-area">
+        <view class="date">{{ activity.formated_start_time }} - {{ activity.formated_end_time }}</view>
+        <view wx:if="{{ activity.status === 'signing-up' }}" class="status-tag signing-up">报名中</view>
+        <view wx:if="{{ activity.status === 'signing-end' }}" class="status-tag signing-end">报名结束</view>
+        <view wx:if="{{ activity.status === 'signed' }}" class="status-tag signed">已报名</view>
+      </view>
+      <view class="address">{{ activity.address }}</view>
+
+      <view wx:if="{{activity.description}}" class="description-label">
+        活动详情
+      </view>
+
+
+      <rich-text wx:if="{{activity.description}}" class="description-content" nodes="{{activity.description}}"></rich-text>
+
+      <view class="apply-timerange">
+      报名时间: {{ activity['formated_start_time'] }} - {{ activity['formated_end_time'] }} 
+    </view>
+
+    <view wx:if="{{ !activityCurrentUserApplication }}" class="activity-apply-btn" bindtap="apply" data-id="{{ activity._id }}">立即报名</view>
+    <view wx:if="{{ activityCurrentUserApplication }}" class="activity-apply-btn disable">已报名</view>
+  </view>
+</view>

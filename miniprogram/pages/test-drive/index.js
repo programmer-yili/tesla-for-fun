@@ -21,6 +21,20 @@ Page({
       currentCityIndex: 0
     },
 
+    getPhoneNumber(e) {
+      const cloudId = e.detail.cloudID
+      wx.cloud.callFunction({
+        name: 'get-phone-number',
+        data: {
+          weRunData: wx.cloud.CloudID(cloudId), // 这个 CloudID 值到云函数端会被替换
+        }
+      }).then(res=>{
+        this.setData({
+          phone: res.result
+        })
+      })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

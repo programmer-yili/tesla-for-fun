@@ -3,6 +3,8 @@ export const qqmapsdk = new QQMapWX({
     key: 'XGBBZ-HYV6W-MJ3RA-OHQCA-FGNYS-2WFW4'
 });
 
+export const key = 'XGBBZ-HYV6W-MJ3RA-OHQCA-FGNYS-2WFW4'
+
 export const initCurrentLocation = () => {
     qqmapsdk.reverseGeocoder({
         success(res) {
